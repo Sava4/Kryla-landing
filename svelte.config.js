@@ -14,6 +14,9 @@ const config = {
 	kit: {
 		adapter: adapter(),
 		prerender: { default: true },
+		paths: {
+			base: '/charity'
+		  },
 		vite: {
 			plugins: [
 				imagetools({ force: true }),
