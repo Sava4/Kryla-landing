@@ -15,7 +15,6 @@ const config = {
 		adapter: adapter(),
 		prerender: { default: true },
 		paths: {
-			assets: 'https://kryla.school/charity',
 			base: '/charity'
 		  },
 		vite: {
