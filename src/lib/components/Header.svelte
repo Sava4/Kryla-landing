@@ -9,12 +9,13 @@
 
 	let selected = 'UA';
 	let open = false;
+	export let activeSection = 1;
 </script>
 
 <div class="fixed">
 	<div class="bg">
 		<div class="container">
-			<a href="#top" class="logo"><Logo width="186" height="64" /></a>
+			<a href="#" class="logo"><Logo width="186" height="64" /></a>
 			<div
 				class="lang-contain"
 				class:open
@@ -25,35 +26,35 @@
 				<div class="langselector">
 					<img
 						src={UA}
-						alt="Ukraine language selector"
+						alt={'Ukraine language selector'}
 						on:click={() => (selected = 'UA')}
 						class:active={selected === 'UA'}
 					/>
 					<img
 						src={GB}
-						alt="English language selector"
+						alt={'English language selector'}
 						on:click={() => (selected = 'GB')}
 						class:active={selected === 'GB'}
 					/>
 				</div>
 			</div>
 			<div class="paginator">
-				<a href="#top" class="link">
+				<a href="#first" class="link" class:active={activeSection >= 1}>
 					<Rollover width="22" height="22" />
 				</a>
-				<a href="#top" class="link active">
+				<a href="#second" class="link" class:active={activeSection >= 2}>
 					<Rollover width="22" height="22" />
 				</a>
-				<a href="#top" class="link">
+				<a href="#third" class="link" class:active={activeSection >= 3}>
 					<Rollover width="22" height="22" />
 				</a>
-				<a href="#top" class="link">
+				<a href="#fourth" class="link" class:active={activeSection >= 4}>
 					<Rollover width="22" height="22" />
 				</a>
-				<a href="#top" class="link">
+				<a href="#fifth" class="link" class:active={activeSection >= 5}>
 					<Rollover width="22" height="22" />
 				</a>
-				<a href="#top" class="link">
+				<a href="#sixth" class="link" class:active={activeSection >= 6}>
 					<Rollover width="22" height="22" />
 				</a>
 			</div>
@@ -61,7 +62,7 @@
 				>В нелегкий час наш ліцей виконує важливу місію з розвитку та виховання майбутніх патріотів
 				та лідерів європейської країни</span
 			>
-			<a class="support" href="#top">Підтримати ліцей</a>
+			<a class="support" href="#">Підтримати ліцей</a>
 		</div>
 	</div>
 	<Counter />
@@ -133,19 +134,12 @@
 	:global(.link .outer) {
 		stroke: transparent;
 	}
-
-	:global(.link:hover .outer),
-	:global(.link.active .outer) {
+	:global(.link:hover .outer) {
 		stroke: var(--blue);
 	}
 
-	:global(.link .inner) {
-		fill: var(--blue);
-	}
-
-	:global(.link.active ~ .link .inner),
 	:global(.link.active .inner) {
-		fill: none;
+		fill: var(--blue);
 	}
 
 	.support {

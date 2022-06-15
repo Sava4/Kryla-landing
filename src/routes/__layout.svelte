@@ -3,7 +3,6 @@
 	import { browser } from '$app/env';
 
 	import 'modern-css-reset/dist/reset.css';
-	// import '../app.css';
 
 	if (browser && !document.lazyloadInstance) {
 		document.lazyloadInstance = new lazyload();
@@ -64,6 +63,7 @@
 	:global(:root) {
 		--blue: #117fff;
 		--yellow: #fff507;
+		--dark-blue: #0a5bdb;
 		--blue-green: #04e9a4;
 		--lime-green: #11ff37;
 		--white: #fff;
@@ -96,5 +96,7 @@
 		overflow-y: auto;
 		perspective: 1px;
 		transform-style: preserve-3d;
+		scroll-behavior: smooth;
+		scroll-padding-top: 200px;
 	}
 </style>
