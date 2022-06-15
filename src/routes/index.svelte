@@ -1,4 +1,6 @@
 <script>
+	import { inview } from 'svelte-inview';
+
 	import Header from '$lib/components/Header.svelte';
 
 	import { onMount } from 'svelte';
@@ -14,8 +16,31 @@
 	import cloud from '$lib/images/cloud.png';
 	import dialogue from '$lib/images/dialogue.png';
 
-	import ways from '$lib/images/ways.svg?url';
+	import WaysIcon from '$lib/icons/ways-icon.svg';
+	import WaysSpin from '$lib/icons/ways-spinning.svg';
+	import WingRight from '$lib/icons/wing-right.svg';
 
+	import paintedHands from '$lib/images/painted-hands.png';
+	import Ticker from 'svelte-ticker';
+
+	import Challenges from '$lib/icons/challenges-icon.svg';
+	import ChallSpin from '$lib/icons/challenges-spinning.svg';
+
+	import Circle from '$lib/icons/circle.svg';
+
+	const tickerProps = {
+		direction: 'left',
+		duration: 90,
+		delay: 0,
+		loop: true,
+		pausing: false,
+		alternate: false,
+		behavior: 'always'
+	};
+
+	const observerOpts = { rootMargin: '20px', threshold: 0.8 };
+
+	let activeSection = 1;
 	// import krylaImg from '$lib/images/kryla.png?w=720&png&src';
 	// import srcsetJpeg from '$lib/images/kryla.png?w=1240;640&jpeg&srcset';
 	// import srcsetWebp from '$lib/images/kryla.png?w=1240;640&webp&srcset';
@@ -37,11 +62,11 @@
 	});
 </script>
 
-<Header />
-<div class="parallax">
+<Header {activeSection} />
+<div id="first" class="parallax" use:inview={observerOpts} on:enter={() => (activeSection = 1)}>
 	<h1>Ми навчаємо вільних дітей</h1>
 	<h2>Вільної, красивої та щасливої України</h2>
-	<div class="ourvalues">
+	<div class="ourvalues-icon">
 		<Diamond width="240" height="238" />
 		<Values class="cinnnosti" width="239" height="237" />
 	</div>
@@ -74,72 +99,147 @@
 </div>
 
 <div class="outer">
-	<div class="inner">
-		<img class="waysImg" src={ways} alt={'Ways icon with scrolling text'} />
+	<div id="second" class="inner" use:inview={observerOpts} on:enter={() => (activeSection = 2)}>
+		<Circle class="circle circle-1" />
+		<Circle class="circle circle-2" />
+		<Circle class="circle circle-3" />
+		<Circle class="circle circle-4" />
+		<Circle class="circle circle-5" />
+		<div class="ways-icon-container">
+			<WaysIcon />
+			<WaysSpin class="ways-spin" />
+			<WingRight class="right" />
+			<WingRight class="right transform" />
+		</div>
 		<div class="ways-cont">
 			<div class="item">
 				<p class="name">Команда</p>
 				<p class="desc">
-					Ретельний добір фахівців-вчителів, якірозділяють і сповідують вказані вище цінності
+					Ретельний добір фахівців-вчителів, які<br /> розділяють і сповідують вказані вище цінності
 				</p>
 			</div>
 			<div class="item">
 				<p class="name">Менеджмент</p>
 				<p class="desc">
-					Діалог між усіма ланками управління та горизонтальні зв’язки між вчителями-учнями-батьками
+					Діалог між усіма ланками управління та<br />
+					горизонтальні зв’язки між вчителями-учнями-батьками
 				</p>
 			</div>
 			<div class="item">
 				<p class="name">Атмосфера</p>
 				<p class="desc">
-					Ставлення до дитини як до особистості, повноцінногоі рівноправного учасника навчального
-					процесу
+					Ставлення до дитини як до особистості, повноцінного<br />
+					і рівноправного учасника навчального процесу
 				</p>
 			</div>
 			<div class="item">
 				<p class="name">Творчість</p>
 				<p class="desc">
-					Креативність, підтримка усіх мистецьких і наукових проєктів талановитих дітей, надання
-					можливості повної творчої реалізації під час навчання в школі
+					Креативність, підтримка усіх мистецьких і наукових проєктів<br />
+					талановитих дітей, надання можливості повної творчої реалізації<br />
+					під час навчання в школі
 				</p>
 			</div>
 			<div class="item">
 				<p class="name">Соціальний акцент</p>
 				<p class="desc">
-					Надання дітям та батькам можливості проявити свої здібності у сфері самоврядування, яке
-					покладено у фундамент концепту школи.
+					Надання дітям та батькам можливості проявити свої здібності у сфері<br />
+					самоврядування, яке покладено у фундамент концепту школи.
 				</p>
 			</div>
 		</div>
 	</div>
-</div>
+	<div
+		id="third"
+		class="painted-container"
+		use:inview={observerOpts}
+		on:enter={() => (activeSection = 3)}
+	>
+		<img src={paintedHands} alt={'Painted hands picture'} />
+	</div>
 
-<div class="wrap">
-	<div class="parallax2" />
-</div>
+	<div
+		id="fourth"
+		class="challenges-section"
+		use:inview={observerOpts}
+		on:enter={() => (activeSection = 4)}
+	>
+		<div class="challenges-container">
+			<Ticker {...tickerProps}>Ми навчаємо вільних дітей &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</Ticker>
+			<Ticker {...tickerProps} direction="right">
+				Ми навчаємо вільних дітей &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			</Ticker>
+		</div>
+		<Circle class="circle circle-6" />
+		<Circle class="circle circle-7" />
+		<div class="icon-container">
+			<Challenges />
+			<ChallSpin class="challenges-spin" />
+		</div>
+		<div class="business">
+			<p>Ми не є бізнес-проектом. Нам складно існувати без підтримки меценатів та/або держави.</p>
+			<p>Орієнтація лише на прибуткову бізнес-модель обмежила б нас у досягненні наших цілей.</p>
+			<p class="accent">Тому</p>
+		</div>
+		<div class="perelik">
+			<p class="first">
+				Ми не шукаємо дітей виключно з забезпечених сімей. Талант і бажання вчитися дитини для нас є
+				найважливішими. Підтримуємо талановитих дітей стипендіями на навчання.
+			</p>
+			<p class="second">
+				Наші вчителі – найкращі професіонали. Їхній справедливий гонорар – вище середнього на ринку.
+			</p>
+			<p class="third">
+				Ми виступаємо за живий формат навчання та невеликі класи – це максимально трудоємкий і
+				вартісний продукт, і саме він веде нас до нашої мети.
+			</p>
+		</div>
+	</div>
 
-<div class="wrp">
-	<h2>Outer text Text</h2>
-	<Values class="cinnosti" width="239" height="237" />
+	<div id="fifth" class="nash-licei" use:inview={observerOpts} on:enter={() => (activeSection = 5)}>
+		<div>
+			<p>
+				Наш ліцей працює та розвивається в значній мірі за рахунок меценатства (40% бюджету). Форма
+				підтримки – оплата частини видатків школи та стипендії для талановитих учнів.
+			</p>
+			<p>
+				До російського вторгнення єдиним джерелом підтримки для школи були власні кошти засновників.
+				Втрати доходу у воєнний час ця підтримка не є можливою. Іншим викликом стало те, що
+				більшість сімей наших учнів також знаходяться у скрутному фінансовому стані. Багато хто
+				втратив бізнес, роботу, житло, покинув свій дім. На сьогодні саме існування школи без
+				зовнішньої підтримки є неможливим.
+			</p>
+			<a href="#">Підтримати ліцей</a>
+		</div>
+	</div>
+	<div class="history">
+
+	</div>
 </div>
 
 <style lang="scss">
-	:global(.svg-cont) {
-		width: 50px;
-		height: 50px;
+	:global() {
+		@keyframes spin {
+			100% {
+				transform: rotate(360deg);
+			}
+		}
+		@keyframes grow {
+			0% {
+				transform: scale(1);
+			}
+			100% {
+				transform: scale(1.1);
+			}
+		}
 	}
 
-	:global(.svg-cont .outer) {
-		stroke: transparent;
+	:global(.circle) {
+		position: absolute;
+		fill: var(--yellow);
+		animation: grow 2s 0s ease-in-out infinite alternate;
+		z-index: -1;
 	}
-	:global(.svg-cont:hover .outer) {
-		stroke: var(--blue);
-	}
-
-	:global(.svg-cont.active .inner) {
-		fill: var(--blue);
-	}
-
 	.parallax {
 		width: 100%;
 		height: 950px;
@@ -150,17 +250,15 @@
 			background-size: cover;
 			background-repeat: no-repeat;
 			background-position: center;
-			/* background-position-y: top 20px; */
-			/* background-color: rgba(17, 127, 255, 0.5); */
-			/* background-image: url('$lib/images/kryla-bg.png'), linear-gradient(74.09deg, #667EEA 9.19%, #10A9FF 88.91%); */
 			background-image: linear-gradient(
 					180deg,
-					rgba(17, 127, 255, 0.75) 0%,
-					rgba(17, 127, 255, 0.9) 54.48%,
-					rgba(17, 127, 255, 1) 75%
+					rgba(17, 127, 255, 0) 0%,
+					rgba(17, 127, 255, 0) 50%,
+					rgba(17, 127, 255, 0.7) 70%,
+					rgba(17, 127, 255, 0.95) 90%,
+					rgba(17, 127, 255, 1) 95%
 				),
-				url('$lib/images/kryla-bg.png');
-			/* background-image: url('$lib/images/with_grad.png'), linear-gradient(74.09deg, rgba(102, 126, 234, 1) 9.19%, rgba(16, 169, 255, 1) 88.91%) */
+				url('$lib/images/kryla-with-effect-sm.png');
 			top: 0px;
 			left: 0px;
 			right: 0px;
@@ -175,7 +273,7 @@
 			line-height: 75px;
 			letter-spacing: 0em;
 			text-align: center;
-			color: #fff;
+			color: var(--white);
 			text-transform: uppercase;
 			margin-top: 133px;
 			margin-bottom: 19px;
@@ -186,64 +284,121 @@
 			line-height: 55px;
 			letter-spacing: 0em;
 			text-align: center;
-			color: #fff;
+			color: var(--white);
 		}
-		.ourvalues {
+		.ourvalues-icon {
 			position: absolute;
 			z-index: -1;
 			left: 50%;
-			/* top: 175px; */
 			top: 270px;
 			transform: translateZ(-1px) scale(2) translateX(-21%);
-			@keyframes spin {
-				100% {
-					transform: rotate(360deg);
-				}
-			}
-			:global(.cinnnosti) {
-				position: absolute;
-				top: 2px;
-				left: 0;
-				animation: spin 45s linear infinite;
-			}
 		}
+		:global(.cinnnosti) {
+			position: absolute;
+			top: 2px;
+			left: 0;
+			animation: spin 90s linear infinite;
+		}
+	}
 
-		.values {
-			max-width: 1240px;
-			margin: 118px auto 0;
-			display: flex;
-			justify-content: space-between;
-			align-items: baseline;
-			color: #fff;
+	.values {
+		max-width: 1240px;
+		margin: 118px auto 0;
+		display: flex;
+		justify-content: space-between;
+		align-items: baseline;
+		color: var(--white);
 
-			.val {
-				flex: 1;
-				text-align: center;
-				img {
-					margin-bottom: -20px;
-				}
-				p {
-					width: 160px;
-					margin: 0 auto;
-					font-size: 15px;
-					font-weight: 700;
-					line-height: 20px;
-					letter-spacing: 0;
-				}
+		.val {
+			flex: 1;
+			text-align: center;
+			img {
+				margin-bottom: -20px;
+			}
+			p {
+				width: 160px;
+				margin: 0 auto;
+				font-size: 15px;
+				font-weight: 700;
+				line-height: 20px;
+				letter-spacing: 0;
 			}
 		}
 	}
 
 	.outer {
 		width: 100%;
-		background-color: #117fff;
+		background-color: var(--blue);
 		perspective: 2px;
 		.inner {
-			.waysImg {
+			position: relative;
+
+			:global(.circle-1) {
+				width: 124px;
+				height: 124px;
+				top: 110px;
+				left: 118px;
+				animation-delay: 0.3s;
+			}
+			:global(.circle-2) {
+				width: 32px;
+				height: 32px;
+				top: 224px;
+				left: 300px;
+				fill: none;
+				animation-delay: 0.6s;
+			}
+			:global(.circle-3) {
+				width: 54px;
+				height: 54px;
+				bottom: 120px;
+				left: 240px;
+				animation-delay: 0.9s;
+			}
+			:global(.circle-4) {
+				width: 107px;
+				height: 107px;
+				top: 60px;
+				right: 140px;
+				animation-delay: 1.2s;
+			}
+			:global(.circle-5) {
+				width: 25px;
+				height: 25px;
+				top: 224px;
+				right: 108px;
+				animation-delay: 1.5s;
+			}
+			.ways-icon-container {
 				position: relative;
+				width: 240px;
+				height: 238px;
 				left: 50%;
-				top: -110px;
+				top: -130px;
 				transform: translateX(-50%);
+
+				:global(.right) {
+					position: absolute;
+					top: -110px;
+					left: 10px;
+					z-index: -2;
+				}
+
+				:global(.right.transform) {
+					position: absolute;
+					transform: matrix(-1, 0, 0, 1, 0, 0);
+					top: -110px;
+					left: -204px;
+					z-index: -2;
+				}
+
+				:global(.ways-spin) {
+					position: absolute;
+					top: 0;
+					left: 0;
+					z-index: -1;
+					animation: spin 90s linear infinite;
+				}
 			}
 
 			.ways-cont {
@@ -260,7 +415,7 @@
 					display: flex;
 					justify-content: space-between;
 					align-items: center;
-					color: #fff;
+					color: var(--white);
 
 					.name {
 						text-align: right;
@@ -284,60 +439,212 @@
 				}
 			}
 		}
-	}
-
-	/* .wrapper {
-  transform-style: preserve-3d;
-  width: 100%;
-  height: 900px;
-  overflow-y: auto;
-  overflow-x: hidden;
-  background-color: rgba(17, 127, 255, 0.3);
-} */
-
-	.wrap {
-		perspective: 1px;
-		height: 300px;
-		overflow-y: auto;
-		overflow-x: hidden;
-	}
-	.parallax2 {
-		transform-style: preserve-3d;
-		position: relative;
-		&::after {
-			position: absolute;
-			z-index: -1;
-			transform: translateZ(-1px) scale(2);
-			background-image: url('$lib/images/painted-hands.png');
-			background-size: cover;
-			background-repeat: no-repeat;
-			background-position: center;
-			top: 0px;
-			bottom: 0px;
-			left: 0px;
-			right: 0px;
-			content: '';
-			height: 600px;
+		.painted-container {
+			overflow: hidden;
+			img {
+				object-fit: cover;
+				width: 100%;
+				position: relative;
+				z-index: -1;
+				top: 0;
+				left: 0;
+			}
 		}
 
-		/* perspective: 1px; */
-		/* &:after {
-    position: fixed;
-    top: 0px;
-    left: 0px;
-    right: 0px;
-    bottom: 0px;
-    z-index: -2;
-    content: "";
-  } */
-	}
+		.challenges-section {
+			position: relative;
+			background-color: var(--blue);
+			padding-bottom: 74px;
+			.challenges-container {
+				margin-top: 70px;
+				font-size: 40px;
+				font-weight: 800;
+				line-height: 75px;
+				letter-spacing: 0em;
+				color: var(--dark-blue);
+				opacity: 0.3;
+				text-transform: uppercase;
+			}
+			:global(.circle-6) {
+				width: 32px;
+				height: 32px;
+				top: 55px;
+				left: 208px;
+				z-index: unset;
+			}
+			:global(.circle-7) {
+				width: 25px;
+				height: 25px;
+				bottom: 305px;
+				right: 133px;
+				animation-delay: 1s;
+				fill: none;
+				z-index: unset;
+			}
+			.icon-container {
+				width: 290px;
+				height: 290px;
+				position: absolute;
+				top: -75px;
+				left: 50%;
+				transform: translateX(-50%);
+				z-index: 2;
+				:global(.challenges-spin) {
+					position: absolute;
+					top: 26px;
+					left: 26px;
+					animation: spin 90s linear infinite;
+				}
+			}
 
-	.wrp {
-		height: 300px;
-		background-color: black;
+			.business {
+				text-align: center;
+				margin: 60px auto;
+				p {
+					font-weight: 700;
+					font-size: 15px;
+					line-height: 20px;
+					color: var(--white);
+					&:first-child {
+						margin-bottom: 10px;
+					}
+				}
+				.accent {
+					margin-top: 19px;
+					font-size: 30px;
+					font-weight: 600;
+					color: var(--yellow);
+				}
+			}
+			.perelik {
+				margin: 0 auto 0 5.3%;
+				display: flex;
+				justify-content: center;
+				p {
+					position: relative;
+					z-index: 1;
+					width: 244px;
+					color: var(--white);
+					font-family: Nunito;
+					font-size: 15px;
+					font-weight: 700;
+					line-height: 20px;
+					letter-spacing: 0em;
+					text-align: left;
+					&:not(:last-child) {
+						margin-right: 144px;
+					}
+				}
+				.first::after,
+				.second::after,
+				.third::after {
+					position: absolute;
+					z-index: -1;
+					font-size: 250px;
+					font-weight: 900;
+					line-height: 40px;
+					letter-spacing: 0em;
+					text-align: center;
+					color: var(--dark-blue);
+				}
+				.first::after {
+					content: '1';
+					top: 6px;
+					left: -98px;
+				}
+				.second::after {
+					content: '2';
+					top: 6px;
+					left: -98px;
+				}
+				.third::after {
+					content: '3';
+					top: 6px;
+					left: -98px;
+				}
+			}
+		}
 
-		h2 {
-			color: #fff;
+		.nash-licei {
+			background-color: var(--white);
+			height: 443px;
+			background-image: url('$lib/images/painted-hands2.png');
+			background-repeat: no-repeat;
+			background-position: center left;
+			background-size: contain;
+			padding: 67px 0 51px;
+
+			div {
+				width: 473px;
+				margin: 0 133px 0 auto;
+				text-align: center;
+				p {
+					text-align: left;
+					color: var(--blue);
+					font-size: 15px;
+					font-weight: 700;
+					line-height: 20px;
+					letter-spacing: 0em;
+					text-align: left;
+					margin-bottom: 24px;
+					&:last-child {
+						margin-bottom: 48px;
+					}
+				}
+
+				a {
+					position: relative;
+					padding: 12px 37px;
+					font-size: 15px;
+					font-weight: 700;
+					line-height: 55px;
+					letter-spacing: 0em;
+					text-align: center;
+					text-transform: uppercase;
+					text-decoration: none;
+					color: var(--white);
+					/* background: linear-gradient(211.5deg, #04E9A4, #117FFF, #11FF37, #117FFF); */
+					background: linear-gradient(90deg, #04e9a4, #117fff, #11ff37, #117fff, #04e9a4);
+					background-size: 500%;
+					border-radius: 10px;
+
+					&::after {
+						content: '';
+						position: absolute;
+						top: 0;
+						left: 0;
+						right: 0;
+						bottom: 0;
+						z-index: -1;
+						/* background: linear-gradient(270deg, #04E9A4, #117FFF, #11FF37, #117FFF); */
+						background: linear-gradient(90deg, #04e9a4, #117fff, #11ff37, #117fff, #04e9a4);
+						background-size: 500%;
+						border-radius: 10px;
+						opacity: 0;
+						transition: 2s;
+					}
+					@keyframes animate {
+						0% {
+							background-position: 0%;
+						}
+						100% {
+							background-position: 500%;
+						}
+					}
+					&:hover {
+						animation: animate 10s linear infinite;
+						&::before {
+							filter: blur(25px);
+							opacity: 0.8;
+							animation: animate 10s linear infinite;
+						}
+					}
+				}
+			}
+		}
+		.history {
+			background-color: var(--blue);
+			height: 900px;
 		}
 	}
 </style>

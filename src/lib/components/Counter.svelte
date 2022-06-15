@@ -15,7 +15,7 @@
 	$: value = uahFmt.format(Math.abs($number)) + ' грн';
 	$: total = uahFmt.format(suma) + ' грн';
 	onMount(() => {
-		fetch('http://localhost:1337/api/counter')
+		fetch(`${import.meta.env.VITE_BACKEND_API}/api/counter`)
 			.then((res) => res.json())
 			.then((r) => {
 				const { zibrano, potribno } = r.data.attributes;
@@ -70,6 +70,7 @@
 		top: 0;
 		left: 0;
 		border-radius: 0 10px 10px 0;
+		min-width: 10%;
 		transition: width 2s ease-in-out;
 	}
 
