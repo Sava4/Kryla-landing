@@ -26,6 +26,9 @@
 	import Challenges from '$lib/icons/challenges-icon.svg';
 	import ChallSpin from '$lib/icons/challenges-spinning.svg';
 
+	import History from '$lib/icons/history-icon.svg';
+	import HistorySpin from '$lib/icons/history-spinning.svg';
+
 	import Circle from '$lib/icons/circle.svg';
 
 	const tickerProps = {
@@ -213,8 +216,66 @@
 		</div>
 	</div>
 	<div class="history">
-
+		<div class="icon-container">
+			<History />
+			<HistorySpin class="history-spin" />
+		</div>
+		<div class="qh-content">
+			<div class="quote-cont">
+				<p class="quote">
+					Ми прагнули створити таке середовище, де усі діти відчувають повагу до своєї особистості,
+					підтримку їхніх талантів та розвиток навиків співпраці. Школу, де вчителі розвивають
+					інтерес дітей до наук, мистецтв та до самого процесу навчання.
+				</p>
+				<p class="author">Наталія Кощеєва, співзосновниця ліцею “Крила”</p>
+			</div>
+			<div class="history-steps">
+				<div class="year">
+					<p class="number">2017</p>
+					<p class="text">
+						Заклад засновано Олександром та Наталією Кощеєвими головним чином для своїх дітей. “Ми
+						відчували, що школи, в яких вони навчались (а серед них були державні, експериментальні,
+						альтернативні), не давали їм того, що буде корисним для їхнього життя”, - ділиться
+						Наталія Кощеєва.
+					</p>
+				</div>
+				<div class="year">
+					<p class="number">2018</p>
+					<p class="text">
+						Школа об’єднує навколо себе родини та викладачів, яким близькі її цінності. У школі
+						навчається близько 20 учнів 1-7 класів, працює 15 вчителів.
+					</p>
+				</div>
+				<div class="year">
+					<p class="number">2019</p>
+					<p class="text">
+						Команда закладу поступово поповнюється неймовірним складом вчителів-професіоналів,
+						об‘єднаних цінностями свободи самовираження, поваги до дитини, любові до рідної мови та
+						свого народу. Крилата родина поповнюється новими сім’ями та збільшується вдвічі.
+					</p>
+				</div>
+				<div class="year">
+					<p class="number">2020</p>
+					<p class="text">Заклад набуває статусу гімназії та випускає перших 9-ти класників.</p>
+				</div>
+				<div class="year">
+					<p class="number">2021</p>
+					<p class="text">
+						Київський ліцей “Крила” стає продовженням гімназії та отримує державну ліцензію для
+						підготовки учнів 10-11 класів.
+					</p>
+				</div>
+				<div class="year">
+					<p class="number">2022</p>
+					<p class="text">
+						Навіть у ці непрості часи у ліцеї здобуває освіту близько 70 учнів 1-11 класів та працює
+						25 вчителів.
+					</p>
+				</div>
+			</div>
+		</div>
 	</div>
+	<div class="test" />
 </div>
 
 <style lang="scss">
@@ -603,7 +664,6 @@
 					text-transform: uppercase;
 					text-decoration: none;
 					color: var(--white);
-					/* background: linear-gradient(211.5deg, #04E9A4, #117FFF, #11FF37, #117FFF); */
 					background: linear-gradient(90deg, #04e9a4, #117fff, #11ff37, #117fff, #04e9a4);
 					background-size: 500%;
 					border-radius: 10px;
@@ -616,12 +676,11 @@
 						right: 0;
 						bottom: 0;
 						z-index: -1;
-						/* background: linear-gradient(270deg, #04E9A4, #117FFF, #11FF37, #117FFF); */
 						background: linear-gradient(90deg, #04e9a4, #117fff, #11ff37, #117fff, #04e9a4);
 						background-size: 500%;
 						border-radius: 10px;
 						opacity: 0;
-						transition: 2s;
+						transition: 0.5s;
 					}
 					@keyframes animate {
 						0% {
@@ -633,7 +692,7 @@
 					}
 					&:hover {
 						animation: animate 10s linear infinite;
-						&::before {
+						&::after {
 							filter: blur(25px);
 							opacity: 0.8;
 							animation: animate 10s linear infinite;
@@ -644,7 +703,115 @@
 		}
 		.history {
 			background-color: var(--blue);
-			height: 900px;
+			position: relative;
+			&::before {
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 668px;
+				height: 648px;
+				content: '';
+				background-image: url('$lib/images/history-backdrop.png');
+				background-repeat: no-repeat;
+			}
+
+			.icon-container {
+				position: relative;
+				width: 394px;
+				height: 324px;
+				left: 50%;
+				transform: translateX(-50%);
+				:global(.history-spin) {
+					position: absolute;
+					top: 6px;
+					left: 76px;
+					animation: spin 90s linear infinite;
+				}
+			}
+
+			.qh-content {
+				margin-top: -80px;
+				display: flex;
+				justify-content: space-around;
+				align-items: start;
+				position: relative;
+
+				.quote-cont {
+					position: sticky;
+					top: 150px;
+					width: 458px;
+					color: var(--white);
+					margin-bottom: 35px;
+					&::before {
+						position: absolute;
+						content: '';
+						width: 475px;
+						height: 401px;
+						background-image: url('$lib/icons/quote-marks.svg');
+						background-repeat: no-repeat;
+						background-size: cover;
+						top: -30px;
+						left: -40px;
+						z-index: -1;
+					}
+					.quote {
+						font-size: 30px;
+						font-weight: 600;
+						line-height: 40px;
+						letter-spacing: 0em;
+						text-align: left;
+						margin-bottom: 29px;
+					}
+					.author {
+						font-size: 15px;
+						font-style: italic;
+						font-weight: 600;
+						line-height: 40px;
+						letter-spacing: 0em;
+						text-align: left;
+					}
+				}
+				.history-steps {
+					width: 458px;
+					.year {
+						margin-bottom: 35px;
+						.number {
+							position: relative;
+							font-size: 30px;
+							font-weight: 600;
+							line-height: 40px;
+							letter-spacing: 0em;
+							text-align: left;
+							color: var(--yellow);
+							margin-bottom: 20px;
+							&::before {
+								content: '';
+								position: absolute;
+								top: 4px;
+								left: -55px;
+								width: 32px;
+								height: 32px;
+								background-repeat: no-repeat;
+								background-size: contain;
+								background-image: url('$lib/icons/circle-year.svg');
+							}
+						}
+
+						.text {
+							color: var(--white);
+							font-size: 15px;
+							font-weight: 700;
+							line-height: 20px;
+							letter-spacing: 0em;
+							text-align: left;
+						}
+					}
+				}
+			}
+		}
+		.test {
+			height: 2000px;
+			background-color: var(--yellow);
 		}
 	}
 </style>

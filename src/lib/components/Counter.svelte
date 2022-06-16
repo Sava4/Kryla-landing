@@ -15,7 +15,7 @@
 	$: value = uahFmt.format(Math.abs($number)) + ' грн';
 	$: total = uahFmt.format(suma) + ' грн';
 	onMount(() => {
-		fetch('https://kryla.school/api/counter')
+		fetch(`${import.meta.env.VITE_BACKEND_API || process.env.VITE_BACKEND_API}/api/counter`)
 			.then((res) => res.json())
 			.then((r) => {
 				const { zibrano, potribno } = r.data.attributes;
