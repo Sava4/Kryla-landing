@@ -18,6 +18,7 @@ const config = {
 			base: '/charity'
 		  },
 		vite: {
+			build: {assetsInlineLimit: 50000},
 			plugins: [
 				imagetools({ force: true }),
 				svg({
