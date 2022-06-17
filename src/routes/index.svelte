@@ -306,12 +306,13 @@
 		height: 950px;
 		position: relative;
 		transform-style: preserve-3d;
-		&:after {
+		&::after {
 			position: absolute;
 			background-size: cover;
 			background-repeat: no-repeat;
 			background-position: center;
-			background-image: linear-gradient(
+			@supports not (background-image: url('$lib/images/kryla-with-effect.webp')) {
+        	background-image:  linear-gradient(
 					180deg,
 					rgba(17, 127, 255, 0) 0%,
 					rgba(17, 127, 255, 0) 50%,
@@ -320,6 +321,16 @@
 					rgba(17, 127, 255, 1) 95%
 				),
 				url('$lib/images/kryla-with-effect-sm.png');
+			}
+			background-image: linear-gradient(
+					180deg,
+					rgba(17, 127, 255, 0) 0%,
+					rgba(17, 127, 255, 0) 50%,
+					rgba(17, 127, 255, 0.7) 70%,
+					rgba(17, 127, 255, 0.95) 90%,
+					rgba(17, 127, 255, 1) 95%
+				),
+				url('$lib/images/kryla-with-effect.webp');
 			top: 0px;
 			left: 0px;
 			right: 0px;

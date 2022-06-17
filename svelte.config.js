@@ -15,6 +15,7 @@ const config = {
 		adapter: adapter(),
 		prerender: { default: true },
 		vite: {
+			build: {assetsInlineLimit: 50000},
 			plugins: [
 				imagetools({ force: true }),
 				svg({
