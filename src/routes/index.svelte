@@ -322,7 +322,8 @@
 				),
 				url('$lib/images/kryla-with-effect-sm.png');
 			}
-			background-image: linear-gradient(
+			@supports (background-image: url('$lib/images/kryla-with-effect.webp')) {
+				background-image: linear-gradient(
 					180deg,
 					rgba(17, 127, 255, 0) 0%,
 					rgba(17, 127, 255, 0) 50%,
@@ -331,6 +332,7 @@
 					rgba(17, 127, 255, 1) 95%
 				),
 				url('$lib/images/kryla-with-effect.webp');
+			}
 			top: 0px;
 			left: 0px;
 			right: 0px;
@@ -744,7 +746,7 @@
 				margin-top: -80px;
 				display: flex;
 				justify-content: space-around;
-				align-items: start;
+				align-items: flex-start;
 				position: relative;
 
 				.quote-cont {
