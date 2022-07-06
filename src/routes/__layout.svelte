@@ -1,12 +1,5 @@
 <script>
-	import lazyload from 'vanilla-lazyload';
-	import { browser } from '$app/env';
-
 	import 'modern-css-reset/dist/reset.css';
-
-	if (browser && !document.lazyloadInstance) {
-		document.lazyloadInstance = new lazyload();
-	}
 </script>
 
 <slot />

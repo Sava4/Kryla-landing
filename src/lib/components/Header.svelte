@@ -15,7 +15,7 @@
 <div class="fixed">
 	<div class="bg">
 		<div class="container">
-			<a href="#" class="logo"><Logo width="186" height="64" /></a>
+			<a href="https://kryla.school/charity" class="logo"><Logo width="186" height="64" /></a>
 			<div
 				class="lang-contain"
 				class:open
@@ -39,22 +39,22 @@
 				</div>
 			</div>
 			<div class="paginator">
-				<a href="#first" class="link" class:active={activeSection >= 1}>
+				<a href="#kryla" class="link" class:active={activeSection >= 1}>
 					<Rollover width="22" height="22" />
 				</a>
-				<a href="#second" class="link" class:active={activeSection >= 2}>
+				<a href="#path" class="link" class:active={activeSection >= 2}>
 					<Rollover width="22" height="22" />
 				</a>
-				<a href="#third" class="link" class:active={activeSection >= 3}>
+				<a href="#challenges" class="link" class:active={activeSection >= 3}>
 					<Rollover width="22" height="22" />
 				</a>
-				<a href="#fourth" class="link" class:active={activeSection >= 4}>
+				<a href="#history" class="link" class:active={activeSection >= 4}>
 					<Rollover width="22" height="22" />
 				</a>
-				<a href="#fifth" class="link" class:active={activeSection >= 5}>
+				<a href="#owl" class="link" class:active={activeSection >= 5}>
 					<Rollover width="22" height="22" />
 				</a>
-				<a href="#sixth" class="link" class:active={activeSection >= 6}>
+				<a href="#photo" class="link" class:active={activeSection >= 6}>
 					<Rollover width="22" height="22" />
 				</a>
 			</div>
@@ -62,7 +62,7 @@
 				>В нелегкий час наш ліцей виконує важливу місію з розвитку та виховання майбутніх патріотів
 				та лідерів європейської країни</span
 			>
-			<a class="support" href="#">Підтримати ліцей</a>
+			<a class="support" href="https://send.monobank.ua/7wmXTSuLwy">Підтримати ліцей</a>
 		</div>
 	</div>
 	<Counter />
@@ -151,10 +151,23 @@
 		font-weight: 700;
 		font-size: 15px;
 		padding: 11px 25px 11px 25px;
-		background: linear-gradient(211.5deg, var(--blue) -6.64%, var(--blue-green) 81%);
+		/* background: linear-gradient(211.5deg, var(--blue) -6.64%, var(--blue-green) 81%); */
+		background: linear-gradient(90deg, #04e9a4, #117fff, #11ff37, #117fff, #04e9a4);
+		background-size: 500%;
 		border-radius: 10px;
 		text-decoration: none;
 		text-align: center;
+		@keyframes animate {
+			0% {
+				background-position: 0%;
+			}
+			100% {
+				background-position: 500%;
+			}
+		}
+		&:hover {
+			animation: animate 10s linear infinite;
+		}
 	}
 
 	.motto {
