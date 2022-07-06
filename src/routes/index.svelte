@@ -3,9 +3,6 @@
 
 	import Header from '$lib/components/Header.svelte';
 
-	import { onMount } from 'svelte';
-	import { browser } from '$app/env';
-	import { Image } from '@rodneylab/sveltekit-components';
 	import Diamond from '$lib/images/diamond-values.svg';
 	import Values from '$lib/images/values.svg';
 
@@ -29,7 +26,63 @@
 	import History from '$lib/icons/history-icon.svg';
 	import HistorySpin from '$lib/icons/history-spinning.svg';
 
+	import HowweTeach from '$lib/icons/howteach-icon.svg';
+	import HowTeachSpin from '$lib/icons/howteach-spin.svg';
+
+	import Icon1 from '$lib/icons/icon1.svg';
+	import Icon2 from '$lib/icons/icon2.svg';
+	import Icon3 from '$lib/icons/icon3.svg';
+	import Icon4 from '$lib/icons/icon4.svg';
+	import Icon5 from '$lib/icons/icon5.svg';
+	import Icon6 from '$lib/icons/icon6.svg';
+	import Icon7 from '$lib/icons/icon7.svg';
+	import Icon8 from '$lib/icons/icon8.svg';
+
+	import Photogallery from '$lib/icons/photogallery-icon.svg';
+	import PhotogallerySpin from '$lib/icons/photogallery-spin.svg';
+
+	import photo1 from '$lib/images/Photo1.png';
+	import photo2 from '$lib/images/Photo2.png';
+	import photo3 from '$lib/images/Photo3.png';
+	import photo4 from '$lib/images/Photo4.png';
+	import photo5 from '$lib/images/Photo5.png';
+	import photo6 from '$lib/images/Photo6.png';
+	import photo7 from '$lib/images/Photo7.png';
+	import photo8 from '$lib/images/Photo8.png';
+
+	import { slidy } from '@slidy/core';
+	import { translate } from '@slidy/animation';
+	import { linear } from '@slidy/easing';
+
+	import QR from '$lib/images/qr.png';
+
+	import Rekvizity from '$lib/icons/rekvizit-icon.svg';
+	import { TabControl, TabControlItem } from 'renderless-svelte';
+	import { slide } from 'svelte/transition';
+
+	import videoThumb from '$lib/images/video-thumb.png';
+
+	import FB from '$lib/icons/fb.svg';
+	import Instagram from '$lib/icons/inst.svg';
+	import Youtube from '$lib/icons/yout.svg';
+
 	import Circle from '$lib/icons/circle.svg';
+
+	let reqOpen = false;
+
+	const options = {
+		index: 0,
+		clamp: 0,
+		indent: 1,
+		sensity: 5,
+		gravity: 1.2,
+		duration: 375,
+		animation: translate,
+		easing: linear,
+		snap: 'center',
+		axis: 'x',
+		loop: false
+	};
 
 	const tickerProps = {
 		direction: 'left',
@@ -41,32 +94,13 @@
 		behavior: 'always'
 	};
 
-	const observerOpts = { rootMargin: '20px', threshold: 0.8 };
+	const observerOpts = { rootMargin: '20px', threshold: 0.6 };
 
 	let activeSection = 1;
-	// import krylaImg from '$lib/images/kryla.png?w=720&png&src';
-	// import srcsetJpeg from '$lib/images/kryla.png?w=1240;640&jpeg&srcset';
-	// import srcsetWebp from '$lib/images/kryla.png?w=1240;640&webp&srcset';
-
-	// const { width, height, src } = meta;
-	// console.log('Meta', meta)
-	// const sources = [
-	//   { srcset: srcsetWebp, type: 'image/webp' },
-	//   { srcset: srcsetJpeg, type: 'image/jpeg' },
-	// ];
-
-	// const sizes = '(max-width: 672px) calc(100vw - 32px), 672px';
-
-	//  console.log('Sizes', sizes)
-	onMount(() => {
-		if (browser) {
-			document.lazyloadInstance.update();
-		}
-	});
 </script>
 
 <Header {activeSection} />
-<div id="first" class="parallax" use:inview={observerOpts} on:enter={() => (activeSection = 1)}>
+<div id="kryla" class="parallax" use:inview={observerOpts} on:enter={() => (activeSection = 1)}>
 	<h1>Ми навчаємо вільних дітей</h1>
 	<h2>Вільної, красивої та щасливої України</h2>
 	<div class="ourvalues-icon">
@@ -102,7 +136,7 @@
 </div>
 
 <div class="outer">
-	<div id="second" class="inner" use:inview={observerOpts} on:enter={() => (activeSection = 2)}>
+	<div id="path" class="inner" use:inview={observerOpts} on:enter={() => (activeSection = 2)}>
 		<Circle class="circle circle-1" />
 		<Circle class="circle circle-2" />
 		<Circle class="circle circle-3" />
@@ -152,20 +186,15 @@
 			</div>
 		</div>
 	</div>
-	<div
-		id="third"
-		class="painted-container"
-		use:inview={observerOpts}
-		on:enter={() => (activeSection = 3)}
-	>
+	<div class="painted-container">
 		<img src={paintedHands} alt={'Painted hands picture'} />
 	</div>
 
 	<div
-		id="fourth"
-		class="challenges-section"
+		id="challenges"
 		use:inview={observerOpts}
-		on:enter={() => (activeSection = 4)}
+		on:enter={() => (activeSection = 3)}
+		class="challenges-section"
 	>
 		<div class="challenges-container">
 			<Ticker {...tickerProps}>Ми навчаємо вільних дітей &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</Ticker>
@@ -199,7 +228,7 @@
 		</div>
 	</div>
 
-	<div id="fifth" class="nash-licei" use:inview={observerOpts} on:enter={() => (activeSection = 5)}>
+	<div class="nash-licei">
 		<div>
 			<p>
 				Наш ліцей працює та розвивається в значній мірі за рахунок меценатства (40% бюджету). Форма
@@ -212,10 +241,10 @@
 				втратив бізнес, роботу, житло, покинув свій дім. На сьогодні саме існування школи без
 				зовнішньої підтримки є неможливим.
 			</p>
-			<a href="#">Підтримати ліцей</a>
+			<a href="https://send.monobank.ua/7wmXTSuLwy">Підтримати ліцей</a>
 		</div>
 	</div>
-	<div class="history">
+	<div id="history" use:inview={observerOpts} on:enter={() => (activeSection = 4)} class="history">
 		<div class="icon-container">
 			<History />
 			<HistorySpin class="history-spin" />
@@ -227,7 +256,7 @@
 					підтримку їхніх талантів та розвиток навиків співпраці. Школу, де вчителі розвивають
 					інтерес дітей до наук, мистецтв та до самого процесу навчання.
 				</p>
-				<p class="author">Наталія Кощеєва, співзосновниця ліцею “Крила”</p>
+				<p class="author">Наталія Кощеєва, співзасновниця ліцею “Крила”</p>
 			</div>
 			<div class="history-steps">
 				<div class="year">
@@ -275,7 +304,322 @@
 			</div>
 		</div>
 	</div>
-	<div class="test" />
+	<div id="owl" use:inview={observerOpts} on:enter={() => (activeSection = 5)} class="how-we-teach">
+		<div class="icon-container">
+			<HowweTeach />
+			<HowTeachSpin class="owl-spin" />
+		</div>
+		<div class="howteachpar">
+			<p>
+				Прагнемо запалити у кожній дитині бажання творити: писати есе, вірші та романи, малювати
+				картини, грати вистави, співати і грати на фортепіано, дискутувати на гострі соціальні та
+				політичні теми тощо.
+			</p>
+			<p>Впроваджуємо і підтримуємо дружні стосунки та довіру між учнями та вчителями.</p>
+			<p>
+				Культивуємо певну “моду” на навчання, на здобуття універсальних знань, на постійне
+				розширення кола інтересів дитини.
+			</p>
+		</div>
+		<div class="card-container">
+			<div class="card">
+				<Icon1 />
+				<p>З 1-го класу у нас працюють вчителі-предметники, які дають глибокі знання</p>
+			</div>
+			<div class="card">
+				<Icon2 />
+				<p>Ми постійно підкреслюємо важливість самостійності та розвиваємо її</p>
+			</div>
+			<div class="card">
+				<Icon3 />
+				<p>
+					Програму Міністерства Освіти доповнюємо темами, які цікаві сучасним дітям, беремо до уваги
+					світові тенденції в освіті
+				</p>
+			</div>
+			<div class="card">
+				<Icon4 />
+				<p class="pl20">
+					Використовуємо сучасні матеріали, додатки та програми (Quizlet, Kahoot, Wordwall та ін.)
+				</p>
+			</div>
+			<div class="card">
+				<Icon5 />
+				<p>
+					Вводимо курси для розвитку потенціалу дітей, зокрема курс риторики, де учні вчаться
+					аналізувати та писати рецензії на твори світових авторів та навіть пишуть власні книги
+				</p>
+			</div>
+			<div class="card">
+				<Icon6 />
+				<p class="pl20">
+					Поглиблено вивчаємо іноземні мови. Наші учні досягають вищих рівнів, ніж в звичайних
+					школах
+				</p>
+			</div>
+			<div class="card">
+				<Icon7 />
+				<p class="pl17">
+					Спілкуємося з учнями поза уроками на цікаві їм теми, зокрема й обговорюємо можливі
+					напрямки в професії
+				</p>
+			</div>
+			<div class="card">
+				<Icon8 />
+				<p>Наголошуємо про важливість опанування нових знань та скілів</p>
+			</div>
+		</div>
+	</div>
+	<div
+		id="photo"
+		use:inview={observerOpts}
+		on:enter={() => (activeSection = 6)}
+		class="photogallery"
+	>
+		<div class="icon-container">
+			<Photogallery />
+			<PhotogallerySpin class="photo-spin" />
+		</div>
+		<div class="swipe-gallery">
+			<div class="mblock" />
+			<ul use:slidy={options}>
+				<li>
+					<img
+						src={photo1}
+						width="277"
+						height="277"
+						loading="lazy"
+						alt={'photo of school activities whiteboard and heart'}
+					/>
+				</li>
+				<li>
+					<img
+						src={photo2}
+						width="277"
+						height="277"
+						loading="lazy"
+						alt={'photo of school activities reading at school'}
+					/>
+				</li>
+				<li>
+					<img
+						src={photo3}
+						width="277"
+						height="277"
+						loading="lazy"
+						alt={'photo of school activities reading with interest'}
+					/>
+				</li>
+				<li>
+					<img src={photo4} width="277" height="277" loading="lazy" alt={'group photo at school'} />
+				</li>
+				<li>
+					<img
+						src={photo5}
+						width="277"
+						height="277"
+						loading="lazy"
+						alt={'photo of school activities having fun'}
+					/>
+				</li>
+				<li>
+					<img
+						src={photo6}
+						width="277"
+						height="277"
+						loading="lazy"
+						alt={'photo of school activities having fun at the masquerade'}
+					/>
+				</li>
+				<li>
+					<img
+						src={photo7}
+						width="277"
+						height="277"
+						loading="lazy"
+						alt={'photo of school activities funny hats'}
+					/>
+				</li>
+				<li>
+					<img
+						src={photo8}
+						width="277"
+						height="277"
+						loading="lazy"
+						alt={'photo of school classroom'}
+					/>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<div class="pidtrymaty">
+		<div class="qrcode">
+			<a href="https://send.monobank.ua/7wmXTSuLwy">
+				<img src={QR} alt="Qrcode for payment" />
+			</a>
+		</div>
+		<div class="payment-block">
+			<p class="heading">Підтримати "Крила"</p>
+			<p class="instructions">
+				Відскануйте QR код або натисніть на кнопку і підтримайте ліцей "Крила" на будь-яку сумму
+			</p>
+			<div class="button-block">
+				<button class:reqOpen class="rekvizity" on:click={() => (reqOpen = !reqOpen)}>
+					<Rekvizity />
+					<span>Реквізити</span>
+				</button>
+				<a href="https://send.monobank.ua/7wmXTSuLwy" class="pidtrymaty-btn">Підтримати ліцей</a>
+			</div>
+			{#if reqOpen}
+				<div class="tabs-container" transition:slide>
+					<TabControl>
+						<div class="tabs" slot="tabs" let:tabs>
+							{#each tabs as { active, disabled, payload, select }}
+								<button class:active on:click={select} {disabled}>{payload}</button>
+							{/each}
+						</div>
+						<div class="tab">
+							<TabControlItem id="UA" payload="Перекази по Україні" active>
+								<div class="physichnyh">
+									<p><strong>🙋 Для фізичних осіб</strong></p>
+									<p>✅ Поповнення картки у гривні</p>
+									<p>"№ картки: 5375414106537136</p>
+									<p>ОДЕРЖУВАЧ: КОЩЕЄВА Н.М.</p>
+									<p>IBAN: UA573220010000026202301839029</p>
+									<p>БАНК ОДЕРЖУВАЧА: АТ «Універсал Банк»</p>
+									<p>ЄДРПОУ ОДЕРЖУВАЧА: 2786915261</p>
+								</div>
+								<div class="yurydychnyh">
+									<p><strong>💼 Для юридичних осіб</strong></p>
+									<p>Назва підприємства: КИIВСЬКИЙ ЛIЦЕЙ КРИЛА ТОВ</p>
+									<p>Банк кореспондент: АТ КБ "ПРИВАТБАНК"</p>
+									<p>SWIFT CODE: PBANUA2X</p>
+									<p>Адреса підприємства: UA 01001 м Київ вул Звiринецька, б.15/1"</p>
+									<p>
+										Призначення платежу: «Благодійна допомога відповідно до листа № 22/06/06-1 від
+										06 червня 2022 р.»
+									</p>
+									<p>&nbsp;&nbsp;&nbsp;&nbsp;<strong>✅ Переказ у гривні</strong></p>
+									<p>&nbsp;&nbsp;&nbsp;&nbsp;<strong>UA083052990000026002016205685</strong></p>
+								</div>
+							</TabControlItem>
+							<TabControlItem id="Int" payload="Перекази з-за кордону">
+								<div class="physichnyh">
+									<p><strong>🙋 Для фізичних осіб</strong></p>
+									<p>SWIFT-ПЕРЕКАЗИ</p>
+									<p>BENEFICIARY: KOSHCHEIEVA NATALIIA</p>
+									<p>01001, Ukraine, c. Kyiv, st. Moskovska, build. 29A, fl. 23</p>
+									<p>Beneficiary bank: JSC UNIVERSAL BANK</p>
+									<p>SWIFT CODE: UNJSUAUKXXX</p>
+									<p>City: KYIV, UKRAINE</p>
+									<p>Details of payment (Призначення платежу): «Private transfer»</p>
+									<p>&nbsp;&nbsp;&nbsp;&nbsp;✅ Переказ у доларах США (USD)</p>
+									<p>&nbsp;&nbsp;&nbsp;&nbsp;IBAN: UA243220010000026204313675495</p>
+									<p>&nbsp;&nbsp;&nbsp;&nbsp;ACCOUNT: 26204313675495</p>
+									<p>&nbsp;&nbsp;&nbsp;&nbsp;✅ Переказ у злотих (PLN)</p>
+									<p>&nbsp;&nbsp;&nbsp;&nbsp;IBAN: UA573220010000026202301839029</p>
+									<p>&nbsp;&nbsp;&nbsp;&nbsp;ACCOUNT: 26202301839029</p>
+									<p>&nbsp;&nbsp;&nbsp;&nbsp;✅ Переказ у фунтах-стерлінгах (GBP)</p>
+									<p>&nbsp;&nbsp;&nbsp;&nbsp;IBAN: UA573220010000026202301839029</p>
+									<p>&nbsp;&nbsp;&nbsp;&nbsp;ACCOUNT: 26202301839029</p>
+								</div>
+								<div class="yurydychnyh">
+									<p><strong>💼 Для юридичних осіб</strong></p>
+									<p>Назва підприємства: КИIВСЬКИЙ ЛIЦЕЙ КРИЛА ТОВ</p>
+									<p>Назва банку: JSC CB "PRIVATBANK",</p>
+									<p>1D HRUSHEVSKOHO STR., KYIV, 01001, UKRAINE</p>
+									<p>SWIFT CODE: PBANUA2X</p>
+									<p>Адреса підприємства: UA 01001 м Київ вул Звiринецька, б. 15/1</p>
+									<p>
+										Details of payment (Призначення платежу): «Charity donation according to the
+										letter № 22/06/06-1 dated 06.06.22»
+									</p>
+									<p>&nbsp;&nbsp;&nbsp;&nbsp;<strong>✅ Переказ у євро (EUR)</strong></p>
+									<p>&nbsp;&nbsp;&nbsp;&nbsp;<strong>IBAN: UA06305299000002600204622857</strong></p>
+									<p class="small">
+										&nbsp;&nbsp;&nbsp;&nbsp;Банк кореспондент: Commerzbank AG, Frankfurt am Main,
+										Germany
+									</p>
+									<p class="small">
+										&nbsp;&nbsp;&nbsp;&nbsp;Рахунок в банку кореспонденті: 400886700401
+									</p>
+									<p class="small">
+										&nbsp;&nbsp;&nbsp;&nbsp;SWIFT Code банку-кореспондента: COBADEFF
+									</p>
+									<p class="small">&nbsp;&nbsp;&nbsp;&nbsp;або</p>
+									<p class="small">
+										&nbsp;&nbsp;&nbsp;&nbsp;Банк кореспондент: J.P.MORGAN AG, FRANKFURT AM MAIN,
+										GERMANY
+									</p>
+									<p class="small">
+										&nbsp;&nbsp;&nbsp;&nbsp;Рахунок в банку кореспонденті: 6231605145
+									</p>
+									<p class="small">
+										&nbsp;&nbsp;&nbsp;&nbsp;SWIFT Code банку-кореспондента: CHASDEFX"
+									</p>
+									<p>&nbsp;&nbsp;&nbsp;&nbsp;<strong>✅ Переказ у USD</strong></p>
+									<p>
+										&nbsp;&nbsp;&nbsp;&nbsp;<strong>IBAN: UA933052990000026002026234828</strong>
+									</p>
+									<p class="small">
+										&nbsp;&nbsp;&nbsp;&nbsp;Банк кореспондент: JP Morgan Chase Bank, New York ,USA
+									</p>
+									<p class="small">
+										&nbsp;&nbsp;&nbsp;&nbsp;Рахунок в банку кореспонденті: 001-1-000080
+									</p>
+									<p class="small">
+										&nbsp;&nbsp;&nbsp;&nbsp;SWIFT Code банку-кореспондента: CHASUS33
+									</p>
+									<p class="small">&nbsp;&nbsp;&nbsp;&nbsp;або</p>
+									<p class="small">
+										&nbsp;&nbsp;&nbsp;&nbsp;Банк кореспондент: The Bank of New York Mellon, New
+										York, USA
+									</p>
+									<p class="small">
+										&nbsp;&nbsp;&nbsp;&nbsp;Рахунок в банку кореспонденті: 890-0085-754
+									</p>
+									<p class="small">
+										&nbsp;&nbsp;&nbsp;&nbsp;SWIFT Code банку-кореспондент: IRVT US 3N"
+									</p>
+								</div>
+							</TabControlItem>
+						</div>
+					</TabControl>
+				</div>
+			{/if}
+		</div>
+	</div>
+	<div class="footer">
+		<div class="contacts">
+			<img src={videoThumb} alt="Video shows school from a drone" />
+			<div class="telephone">
+				<a href="tel:+380663307618">+380 66 330 76 18</a>
+			</div>
+			<div class="email">
+				<a href="mailto:kryla.school@gmail.com">kryla.school@gmail.com</a>
+			</div>
+			<div class="address">
+				<a href="https://goo.gl/maps/yuymLTb1n7j1k4Gq8">
+					вул. Звіринецька, 15/1,<br />
+					Печерський р-н, Київ,<br />
+					Україна 01014
+				</a>
+			</div>
+		</div>
+		<div class="socials">
+			<div class="icon-block">
+				<a href="https://www.facebook.com/kryla.school.pechersk/">
+					<FB class="social-icon" />
+				</a>
+				<a href="https://www.instagram.com/kryla.school/">
+					<Instagram class="social-icon" />
+				</a>
+				<a href="https://www.youtube.com/channel/UCKNGBd6szdBz93KyvcXMrjQ/videos">
+					<Youtube class="social-icon" />
+				</a>
+			</div>
+		</div>
+	</div>
 </div>
 
 <style lang="scss">
@@ -312,26 +656,26 @@
 			background-repeat: no-repeat;
 			background-position: center;
 			@supports not (background-image: url('$lib/images/kryla-with-effect.webp')) {
-        	background-image:  linear-gradient(
-					180deg,
-					rgba(17, 127, 255, 0) 0%,
-					rgba(17, 127, 255, 0) 50%,
-					rgba(17, 127, 255, 0.7) 70%,
-					rgba(17, 127, 255, 0.95) 90%,
-					rgba(17, 127, 255, 1) 95%
-				),
-				url('$lib/images/kryla-with-effect-sm.png');
+				background-image: linear-gradient(
+						180deg,
+						rgba(17, 127, 255, 0) 0%,
+						rgba(17, 127, 255, 0) 50%,
+						rgba(17, 127, 255, 0.7) 70%,
+						rgba(17, 127, 255, 0.95) 90%,
+						rgba(17, 127, 255, 1) 95%
+					),
+					url('$lib/images/kryla-with-effect-sm.png');
 			}
 			@supports (background-image: url('$lib/images/kryla-with-effect.webp')) {
 				background-image: linear-gradient(
-					180deg,
-					rgba(17, 127, 255, 0) 0%,
-					rgba(17, 127, 255, 0) 50%,
-					rgba(17, 127, 255, 0.7) 70%,
-					rgba(17, 127, 255, 0.95) 90%,
-					rgba(17, 127, 255, 1) 95%
-				),
-				url('$lib/images/kryla-with-effect.webp');
+						180deg,
+						rgba(17, 127, 255, 0) 0%,
+						rgba(17, 127, 255, 0) 50%,
+						rgba(17, 127, 255, 0.7) 70%,
+						rgba(17, 127, 255, 0.95) 90%,
+						rgba(17, 127, 255, 1) 95%
+					),
+					url('$lib/images/kryla-with-effect.webp');
 			}
 			top: 0px;
 			left: 0px;
@@ -526,6 +870,7 @@
 		}
 
 		.challenges-section {
+			margin-top: -20px;
 			position: relative;
 			background-color: var(--blue);
 			padding-bottom: 74px;
@@ -680,21 +1025,6 @@
 					background: linear-gradient(90deg, #04e9a4, #117fff, #11ff37, #117fff, #04e9a4);
 					background-size: 500%;
 					border-radius: 10px;
-
-					&::after {
-						content: '';
-						position: absolute;
-						top: 0;
-						left: 0;
-						right: 0;
-						bottom: 0;
-						z-index: -1;
-						background: linear-gradient(90deg, #04e9a4, #117fff, #11ff37, #117fff, #04e9a4);
-						background-size: 500%;
-						border-radius: 10px;
-						opacity: 0;
-						transition: 0.5s;
-					}
 					@keyframes animate {
 						0% {
 							background-position: 0%;
@@ -705,11 +1035,6 @@
 					}
 					&:hover {
 						animation: animate 10s linear infinite;
-						&::after {
-							filter: blur(25px);
-							opacity: 0.8;
-							animation: animate 10s linear infinite;
-						}
 					}
 				}
 			}
@@ -822,9 +1147,387 @@
 				}
 			}
 		}
-		.test {
-			height: 2000px;
+		.how-we-teach {
+			margin-top: -70px;
+			.icon-container {
+				position: relative;
+				width: 384px;
+				height: 389px;
+				left: 50%;
+				transform: translateX(-50%);
+				:global(.owl-spin) {
+					position: absolute;
+					top: 82px;
+					left: 77px;
+					animation: spin 90s linear infinite;
+				}
+			}
+			.howteachpar {
+				position: relative;
+				max-width: 818px;
+				margin: 0 auto;
+				font-style: normal;
+				font-weight: 700;
+				font-size: 15px;
+				line-height: 20px;
+				/* or 133% */
+				text-align: center;
+				color: var(--white);
+				z-index: 1;
+				p {
+					margin-bottom: 15px;
+				}
+				&::after {
+					position: absolute;
+					top: 50px;
+					left: 205px;
+					content: 'МИ';
+					font-size: 250px;
+					font-weight: 900;
+					line-height: 40px;
+					letter-spacing: 0em;
+					text-align: center;
+					color: var(--dark-blue);
+					z-index: -1;
+				}
+			}
+			.card-container {
+				margin: 64px auto 0;
+				max-width: 1128px;
+				display: flex;
+				justify-content: space-between;
+				flex-wrap: wrap;
+				align-items: flex-start;
+				gap: 84px 8px;
+				font-style: normal;
+				font-weight: 700;
+				font-size: 15px;
+				line-height: 20px;
+				text-align: center;
+				color: var(--white);
+				.card {
+					width: 231px;
+					p {
+						margin-top: 30px;
+					}
+					.pl20 {
+						margin-top: 40px;
+					}
+					.pl17 {
+						margin-top: 17px;
+					}
+				}
+			}
+		}
+		.photogallery {
+			padding-bottom: 78px;
+			.icon-container {
+				margin-top: -64px;
+				position: relative;
+				width: 384px;
+				height: 389px;
+				left: 50%;
+				transform: translateX(-50%);
+				:global(.photo-spin) {
+					position: absolute;
+					top: 82px;
+					left: 77px;
+					animation: spin 90s linear infinite;
+				}
+			}
+			.swipe-gallery {
+				.mblock {
+					width: 104px;
+				}
+				ul {
+					list-style: none;
+					margin: 0;
+					padding: 0;
+					display: flex;
+					flex-flow: var(--flow) nowrap;
+					align-items: center;
+					justify-content: center;
+					gap: 39px;
+					width: 100%;
+					height: 100%;
+				}
+				ul li {
+					flex: 1 0 auto;
+					width: auto;
+					max-width: 100%;
+					height: 100%;
+					position: relative;
+				}
+				ul li img {
+					width: 100%;
+					width: auto;
+					height: 100%;
+					display: flex;
+					object-fit: cover;
+					max-width: 100%;
+				}
+			}
+		}
+
+		.pidtrymaty {
+			position: relative;
+			width: 100%;
+			min-height: 399px;
 			background-color: var(--yellow);
+			background-image: url('$lib/images/bg-pidtrymaty.svg');
+			background-size: 100%;
+			background-repeat: no-repeat;
+			padding: 51px 0 43px;
+			display: flex;
+			justify-content: center;
+			&::before {
+				content: '';
+				width: 139px;
+				height: 32px;
+				position: absolute;
+				top: 50%;
+				left: 0;
+				background-image: url('$lib/images/arrow.svg');
+				background-size: cover;
+			}
+			&::after {
+				content: '';
+				width: 139px;
+				height: 32px;
+				position: absolute;
+				top: 50%;
+				right: 0;
+				transform: rotate(180deg);
+				background-image: url('$lib/images/arrow.svg');
+				background-size: cover;
+			}
+
+			.qrcode {
+				width: 305px;
+				height: 305px;
+				border: 5px solid var(--white);
+				border-radius: 20px;
+				margin-right: 124px;
+				img {
+					object-fit: cover;
+					object-fit: cover;
+					width: 100%;
+					height: 100%;
+				}
+			}
+			.payment-block {
+				width: 559px;
+				text-align: left;
+				color: var(--blue);
+
+				.tabs-container {
+					margin-top: 24px;
+					height: 100%;
+					/* height: 565px; */
+					/* height: 1297px; */
+					.tabs {
+						display: flex;
+						justify-content: space-between;
+						margin-bottom: 16px;
+						button {
+							height: 45px;
+							padding: 6px 36px;
+							border-radius: 10px;
+							background-color: var(--yellow);
+							border: 0;
+							color: var(--blue);
+							font-style: normal;
+							font-weight: 700;
+							font-size: 15px;
+							cursor: pointer;
+							border: 1px solid transparent;
+							&.active {
+								color: var(--white);
+								background-color: var(--blue);
+							}
+							&:hover {
+								border: 1px solid var(--dark-blue);
+							}
+						}
+					}
+					.tab {
+						div {
+							padding: 4px;
+						}
+						.yurydychnyh {
+							border-radius: 20px;
+							background-color: var(--blue);
+							color: var(--white);
+						}
+						p + p {
+							margin-top: 8px;
+						}
+						p.small + p.small {
+							margin-top: 4px;
+						}
+						.small {
+							font-style: normal;
+							font-weight: 700;
+							font-size: 12px;
+						}
+					}
+				}
+				.heading {
+					font-style: normal;
+					font-weight: 800;
+					font-size: 40px;
+					line-height: 75px;
+					text-transform: uppercase;
+				}
+				.instructions {
+					font-style: normal;
+					font-weight: 600;
+					font-size: 30px;
+					line-height: 40px;
+					margin-bottom: 24px;
+				}
+				.button-block {
+					display: flex;
+					justify-content: space-between;
+					align-items: center;
+					position: relative;
+					&::after {
+						content: '';
+						position: absolute;
+						width: 18px;
+						height: 18px;
+						top: 24%;
+						right: 48%;
+						border-radius: 40px;
+						background-color: var(--white);
+					}
+					.rekvizity {
+						height: 45px;
+						padding: 6px 49px 5px 38px;
+						border-radius: 10px;
+						background-color: var(--blue);
+						border: 0;
+						color: var(--white);
+						font-style: normal;
+						font-weight: 700;
+						font-size: 15px;
+						text-transform: uppercase;
+						cursor: pointer;
+
+						&:hover,
+						&.reqOpen {
+							background-color: var(--dark-blue);
+						}
+						span {
+							margin-left: 17px;
+							position: relative;
+							bottom: 11px;
+						}
+					}
+					.pidtrymaty-btn {
+						position: relative;
+						padding: 12px 35px 11px;
+						font-size: 15px;
+						font-weight: 700;
+						letter-spacing: 0em;
+						text-align: center;
+						text-transform: uppercase;
+						text-decoration: none;
+						color: var(--white);
+						background: linear-gradient(90deg, #04e9a4, #117fff, #11ff37, #117fff, #04e9a4);
+						background-size: 500%;
+						border-radius: 10px;
+						&:hover {
+							animation: animate 10s linear infinite;
+						}
+					}
+				}
+			}
+		}
+		.footer {
+			.contacts {
+				position: relative;
+				max-width: 1240px;
+				height: 367px;
+				margin: 0 auto;
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+				background-color: var(--blue);
+				overflow-y: hidden;
+				a {
+					text-decoration: none;
+					font-style: normal;
+					font-weight: 700;
+					font-size: 20px;
+					line-height: 20px;
+					color: var(--yellow);
+				}
+				&::after {
+					content: '';
+					width: 414px;
+					height: 431px;
+					position: absolute;
+					bottom: -14%;
+					left: 26%;
+					background-image: url('$lib/images/footer-wing.svg');
+				}
+
+				.telephone {
+					width: 277px;
+					height: 277px;
+					display: flex;
+					justify-content: center;
+					align-items: center;
+					background-image: url('$lib/icons/telephone-icon.svg');
+					background-repeat: no-repeat;
+					background-position: center;
+					z-index: 2;
+				}
+				.email {
+					width: 277px;
+					height: 277px;
+					display: flex;
+					justify-content: center;
+					align-items: center;
+					background-image: url('$lib/icons/mail-icon.svg');
+					background-repeat: no-repeat;
+					background-position: center;
+					z-index: 2;
+				}
+				.address {
+					width: 231px;
+					height: 180px;
+					line-height: 25px;
+					display: flex;
+					justify-content: center;
+					align-items: center;
+					background-image: url('$lib/icons/map-icon.svg');
+					background-repeat: no-repeat;
+					background-position: center;
+					a {
+						line-height: 25px;
+					}
+				}
+			}
+			.socials {
+				background-color: var(--dark-blue);
+				height: 72px;
+				.icon-block {
+					width: 200px;
+					height: 28px;
+					margin: 0 auto;
+					display: flex;
+					justify-content: space-between;
+					align-items: center;
+					position: relative;
+					top: 24px;
+
+					:global(.social-icon:hover) {
+						fill: var(--yellow);
+					}
+				}
+			}
 		}
 	}
 </style>
