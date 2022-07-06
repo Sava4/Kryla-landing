@@ -388,7 +388,6 @@
 						src={photo1}
 						width="277"
 						height="277"
-						loading="lazy"
 						alt={'photo of school activities whiteboard and heart'}
 					/>
 				</li>
@@ -397,7 +396,6 @@
 						src={photo2}
 						width="277"
 						height="277"
-						loading="lazy"
 						alt={'photo of school activities reading at school'}
 					/>
 				</li>
@@ -406,19 +404,17 @@
 						src={photo3}
 						width="277"
 						height="277"
-						loading="lazy"
 						alt={'photo of school activities reading with interest'}
 					/>
 				</li>
 				<li>
-					<img src={photo4} width="277" height="277" loading="lazy" alt={'group photo at school'} />
+					<img src={photo4} width="277" height="277" alt={'group photo at school'} />
 				</li>
 				<li>
 					<img
 						src={photo5}
 						width="277"
 						height="277"
-						loading="lazy"
 						alt={'photo of school activities having fun'}
 					/>
 				</li>
@@ -427,7 +423,6 @@
 						src={photo6}
 						width="277"
 						height="277"
-						loading="lazy"
 						alt={'photo of school activities having fun at the masquerade'}
 					/>
 				</li>
@@ -436,7 +431,6 @@
 						src={photo7}
 						width="277"
 						height="277"
-						loading="lazy"
 						alt={'photo of school activities funny hats'}
 					/>
 				</li>
@@ -445,7 +439,6 @@
 						src={photo8}
 						width="277"
 						height="277"
-						loading="lazy"
 						alt={'photo of school classroom'}
 					/>
 				</li>
@@ -1285,7 +1278,7 @@
 				width: 139px;
 				height: 32px;
 				position: absolute;
-				top: 50%;
+				top: 200px;
 				left: 0;
 				background-image: url('$lib/images/arrow.svg');
 				background-size: cover;
@@ -1295,7 +1288,7 @@
 				width: 139px;
 				height: 32px;
 				position: absolute;
-				top: 50%;
+				top: 200px;
 				right: 0;
 				transform: rotate(180deg);
 				background-image: url('$lib/images/arrow.svg');
@@ -1330,23 +1323,29 @@
 						justify-content: space-between;
 						margin-bottom: 16px;
 						button {
+							width: 50%;
 							height: 45px;
 							padding: 6px 36px;
-							border-radius: 10px;
 							background-color: var(--yellow);
-							border: 0;
 							color: var(--blue);
 							font-style: normal;
 							font-weight: 700;
 							font-size: 15px;
 							cursor: pointer;
-							border: 1px solid transparent;
+							border-radius: 0 10px 10px 0;
+							border: 2px solid var(--blue);
+
+							&:first-child {
+								border-radius: 10px 0 0 10px;
+							}
 							&.active {
 								color: var(--white);
 								background-color: var(--blue);
 							}
 							&:hover {
-								border: 1px solid var(--dark-blue);
+								background-color: var(--dark-blue);
+								color: var(--white);
+								border-color: var(--dark-blue);
 							}
 						}
 					}
