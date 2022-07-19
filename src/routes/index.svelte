@@ -61,6 +61,7 @@
 	import { slide } from 'svelte/transition';
 
 	import videoThumb from '$lib/images/video-thumb.png';
+	import dji from '$lib/video/DJI.mp4';
 
 	import FB from '$lib/icons/fb.svg';
 	import Instagram from '$lib/icons/inst.svg';
@@ -68,6 +69,7 @@
 
 	import Circle from '$lib/icons/circle.svg';
 
+	let play = false;
 	let reqOpen = false;
 
 	const options = {
@@ -328,7 +330,7 @@
 			</div>
 			<div class="card">
 				<Icon2 />
-				<p>Ми постійно підкреслюємо важливість самостійності та розвиваємо її</p>
+				<p>Постійно підкреслюємо важливість самостійності та розвиваємо її</p>
 			</div>
 			<div class="card">
 				<Icon3 />
@@ -435,12 +437,7 @@
 					/>
 				</li>
 				<li>
-					<img
-						src={photo8}
-						width="277"
-						height="277"
-						alt={'photo of school classroom'}
-					/>
+					<img src={photo8} width="277" height="277" alt={'photo of school classroom'} />
 				</li>
 			</ul>
 		</div>
@@ -584,7 +581,21 @@
 	</div>
 	<div class="footer">
 		<div class="contacts">
-			<img src={videoThumb} alt="Video shows school from a drone" />
+			<video
+				src={dji}
+				type="video/mp4"
+				poster={videoThumb}
+				width="277"
+				height="277"
+				preload="meta"
+				controls={play}
+				autoplay={play}
+				on:click|once={() => (play = true)}
+			>
+				<p>
+					Your browser doesn't support HTML5 video. Here is a <a href={dji}>link to the video</a> instead.
+				</p>
+			</video>
 			<div class="telephone">
 				<a href="tel:+380663307618">+380 66 330 76 18</a>
 			</div>
@@ -639,7 +650,7 @@
 		z-index: -1;
 	}
 	.parallax {
-		width: 100%;
+		width: 100vw;
 		height: 950px;
 		position: relative;
 		transform-style: preserve-3d;
@@ -1454,6 +1465,11 @@
 				align-items: center;
 				background-color: var(--blue);
 				overflow-y: hidden;
+
+				video {
+					object-fit: cover;
+					border-radius: 20px;
+				}
 				a {
 					text-decoration: none;
 					font-style: normal;
