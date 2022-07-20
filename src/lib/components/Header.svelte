@@ -15,7 +15,7 @@
 <div class="fixed">
 	<div class="bg">
 		<div class="container">
-			<a href="https://kryla.school/charity" class="logo"><Logo width="186" height="64" /></a>
+			<a href="https://kryla.school/charity"><Logo class="logo" width="186" height="64" /></a>
 			<div
 				class="lang-contain"
 				class:open
@@ -80,6 +80,9 @@
 		background-color: var(--yellow);
 		height: 94px;
 		display: flex;
+		@media screen and (max-width: $mobile-breakpoint) {
+			height: 55px;
+		}
 	}
 
 	.container {
@@ -89,95 +92,132 @@
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
-	}
+		@media screen and (max-width: $mobile-breakpoint) {
+			max-width: 90%;
+		}
 
-	.lang-contain {
-		margin: 0 28px 0 auto;
-		width: 39px;
-		height: 39px;
-		overflow: hidden;
+		:global(.logo) {
+			@media screen and (max-width: $mobile-breakpoint) {
+				width: 108px;
+				height: 37.5px;
+			}
+		}
 
-		.langselector {
-			width: 98px;
-			border-radius: 30px;
-			display: flex;
-			justify-content: space-between;
+		.lang-contain {
+			margin: 0 auto;
+			width: 45px;
+			height: 45px;
+			overflow: hidden;
+			position: relative;
+			top: -2px;
+			@media screen and (max-width: $mobile-breakpoint) {
+				order: 2;
+				margin: 0 0 0 18px;
+				width: 30px;
+				height: 30px;
+			}
 
-			img {
-				cursor: pointer;
-				&.active {
-					order: -1;
+			.langselector {
+				width: 98px;
+				border-radius: 30px;
+				display: flex;
+				justify-content: space-between;
+				padding: 3px;
+				border: 2px solid transparent;
+
+				@media screen and (max-width: $mobile-breakpoint) {
+					width: 34px;
+					height: 62px;
+					flex-direction: column;
+				}
+
+				img {
+					cursor: pointer;
+					&.active {
+						order: -1;
+					}
+				}
+			}
+			&.open {
+				overflow: visible;
+				.langselector {
+					border: 2px solid var(--white);
 				}
 			}
 		}
-		&.open {
-			overflow: visible;
-			height: 50px;
-			width: 50px;
-			position: relative;
-			left: -6px;
-			margin-right: 16px;
-			.langselector {
-				padding: 3px;
-				border: 2px solid var(--white);
+
+		.paginator {
+			margin-left: auto;
+			width: 192px;
+			height: 22px;
+			display: flex;
+			justify-content: space-between;
+			@media screen and (max-width: $mobile-breakpoint) {
+				display: none;
 			}
 		}
-	}
 
-	.paginator {
-		width: 192px;
-		height: 22px;
-		display: flex;
-		justify-content: space-between;
-	}
+		:global(.link .outer) {
+			stroke: transparent;
+		}
+		:global(.link:hover .outer) {
+			stroke: var(--blue);
+		}
 
-	:global(.link .outer) {
-		stroke: transparent;
-	}
-	:global(.link:hover .outer) {
-		stroke: var(--blue);
-	}
+		:global(.link.active .inner) {
+			fill: var(--blue);
+		}
 
-	:global(.link.active .inner) {
-		fill: var(--blue);
-	}
+		.support {
+			margin-left: 29px;
+			height: 45px;
+			width: 223px;
+			color: var(--white);
+			text-transform: uppercase;
+			font-weight: 700;
+			font-size: 15px;
+			padding: 11px 25px 11px 25px;
+			/* background: linear-gradient(211.5deg, var(--blue) -6.64%, var(--blue-green) 81%); */
+			background: linear-gradient(90deg, #04e9a4, #117fff, #11ff37, #117fff, #04e9a4);
+			background-size: 500%;
+			border-radius: 10px;
+			text-decoration: none;
+			text-align: center;
 
-	.support {
-		margin-left: 29px;
-		height: 45px;
-		width: 223px;
-		color: var(--white);
-		text-transform: uppercase;
-		font-weight: 700;
-		font-size: 15px;
-		padding: 11px 25px 11px 25px;
-		/* background: linear-gradient(211.5deg, var(--blue) -6.64%, var(--blue-green) 81%); */
-		background: linear-gradient(90deg, #04e9a4, #117fff, #11ff37, #117fff, #04e9a4);
-		background-size: 500%;
-		border-radius: 10px;
-		text-decoration: none;
-		text-align: center;
-		@keyframes animate {
-			0% {
-				background-position: 0%;
+			@media screen and (max-width: $mobile-breakpoint) {
+				height: 24px;
+				width: 115px;
+				border-radius: 5px;
+				padding: 6.5px 15px;
+				margin-left: auto;
+				font-size: 7px;
+				letter-spacing: 0em;
 			}
-			100% {
-				background-position: 500%;
+			@keyframes animate {
+				0% {
+					background-position: 0%;
+				}
+				100% {
+					background-position: 500%;
+				}
+			}
+			&:hover {
+				animation: animate 10s linear infinite;
 			}
 		}
-		&:hover {
-			animation: animate 10s linear infinite;
-		}
-	}
 
-	.motto {
-		margin-left: auto;
-		width: 323px;
-		height: 45px;
-		font-weight: 500;
-		font-size: 15px;
-		line-height: 1;
-		text-align: right;
-		color: var(--blue);
+		.motto {
+			margin-left: auto;
+			width: 323px;
+			height: 45px;
+			font-weight: 500;
+			font-size: 15px;
+			line-height: 1;
+			text-align: right;
+			color: var(--blue);
+			@media screen and (max-width: $mobile-breakpoint) {
+				display: none;
+			}
+		}
 	}
 </style>

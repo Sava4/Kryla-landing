@@ -21,7 +21,7 @@
 				const { zibrano, potribno } = r.data.attributes;
 				suma = potribno;
 				loading = false;
-				width = Math.round((zibrano / suma) * 100);
+				width = Math.round((zibrano / suma) * 100) - 1;
 				number.set(zibrano);
 			})
 			.catch((err) => {
@@ -36,7 +36,7 @@
 
 <div class="container">
 	<div class="ruler">
-		<div class="counter" style="width: {width}%;">
+		<div class="counter" style="width: calc({width}% - {total.length - 3}ch);">
 			<p class="value">{value}</p>
 		</div>
 	</div>
@@ -47,7 +47,7 @@
 	{/if}
 </div>
 
-<style>
+<style lang="scss">
 	.container {
 		display: flex;
 		max-width: 1240px;
@@ -66,12 +66,18 @@
 	.counter {
 		height: 14px;
 		background-image: linear-gradient(269.88deg, #07d2b4 0%, #117fff 50.1%);
+		font-size: 12px;
 		position: absolute;
 		top: 0;
 		left: 0;
 		border-radius: 0 10px 10px 0;
 		min-width: 10%;
 		transition: width 2s ease-in-out;
+
+		@media screen and (max-width: $mobile-breakpoint) {
+			min-width: 25%;
+			font-size: 10px;
+		}
 	}
 
 	.value {
@@ -82,6 +88,10 @@
 		font-size: 12px;
 		line-height: 14px;
 		color: var(--white);
+
+		@media screen and (max-width: $mobile-breakpoint) {
+			font-size: 10px;
+		}
 	}
 
 	.total {
@@ -89,6 +99,9 @@
 		font-size: 12px;
 		line-height: 14px;
 		color: var(--yellow);
+		@media screen and (max-width: $mobile-breakpoint) {
+			font-size: 10px;
+		}
 	}
 
 	:global(.loader) {

@@ -53,6 +53,7 @@
 			/* Chrome 26+, Opera 23+, Firefox 39+ */ url('$lib/fonts/nunito-v24-latin_cyrillic-800.woff')
 				format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 	}
+
 	:global(:root) {
 		--blue: #117fff;
 		--yellow: #fff507;

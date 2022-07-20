@@ -99,6 +99,11 @@
 	const observerOpts = { rootMargin: '20px', threshold: 0.6 };
 
 	let activeSection = 1;
+
+	function playVideo(e) {
+		play = true;
+		e.target.play();
+	}
 </script>
 
 <Header {activeSection} />
@@ -589,9 +594,9 @@
 				height="277"
 				preload="meta"
 				controls={play}
-				autoplay={play}
-				on:click|once={() => (play = true)}
+				on:click|once={playVideo}
 			>
+				<track kind="captions" />
 				<p>
 					Your browser doesn't support HTML5 video. Here is a <a href={dji}>link to the video</a> instead.
 				</p>

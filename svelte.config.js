@@ -7,7 +7,9 @@ import { imagetools } from 'vite-imagetools';
 const config = {
 	preprocess: [
 		preprocess({
-			scss: true,
+			scss: {
+				prependData: `@import './src/variables.scss';`
+			},
 			postcss: true
 		})
 	],
