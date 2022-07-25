@@ -62,7 +62,7 @@
 				>В нелегкий час наш ліцей виконує важливу місію з розвитку та виховання майбутніх патріотів
 				та лідерів європейської країни</span
 			>
-			<a class="support" href="https://send.monobank.ua/7wmXTSuLwy">Підтримати ліцей</a>
+			<a class="support" href="#support">Підтримати ліцей</a>
 		</div>
 	</div>
 	<Counter />

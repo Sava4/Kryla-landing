@@ -447,7 +447,7 @@
 			</ul>
 		</div>
 	</div>
-	<div class="pidtrymaty">
+	<div id="support" class="pidtrymaty">
 		<div class="qrcode">
 			<a href="https://send.monobank.ua/7wmXTSuLwy">
 				<img src={QR} alt="Qrcode for payment" />
@@ -1471,6 +1471,14 @@
 				background-color: var(--blue);
 				overflow-y: hidden;
 
+				@media screen and (max-width: $mobile-breakpoint) {
+				flex-direction: column;
+				height: 965px;
+				padding-top: 49px;
+				padding-bottom: 38px;
+				
+			}
+
 				video {
 					object-fit: cover;
 					border-radius: 20px;
@@ -1503,6 +1511,8 @@
 					background-repeat: no-repeat;
 					background-position: center;
 					z-index: 2;
+				
+
 				}
 				.email {
 					width: 277px;
