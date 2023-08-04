@@ -77,6 +77,7 @@
 		left: 0;
 		width: 100%;
 		z-index: 5;
+		padding-top: env(safe-area-inset-top);
 	}
 	.bg {
 		background-color: var(--yellow);

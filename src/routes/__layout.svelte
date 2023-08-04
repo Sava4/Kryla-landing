@@ -88,6 +88,7 @@
 		position: relative;
 		width: 100vw;
 		height: 100vh;
+		height: 100lvh;
 		overflow-x: hidden;
 		overflow-y: auto;
 		perspective: 1px;
@@ -95,6 +96,7 @@
 		scroll-behavior: smooth;
 		scroll-padding-top: 200px;
 		@media screen and (max-width: $mobile-breakpoint) {
+			background-color: var(--yellow);
 			scroll-padding-top: 55px;
 		}
 	}

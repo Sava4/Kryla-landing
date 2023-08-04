@@ -1830,6 +1830,7 @@
 				height: 72px;
 				@media screen and (max-width: $mobile-breakpoint) {
 					height: 134px;
+					padding-bottom: 70px;
 				}
 				.icon-block {
 					width: 200px;
