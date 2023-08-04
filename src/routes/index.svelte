@@ -671,19 +671,7 @@
 			background-size: cover;
 			background-repeat: no-repeat;
 			background-position: center;
-			@supports not (background-image: url('$lib/images/kryla-with-effect.webp')) {
-				background-image: linear-gradient(
-						180deg,
-						rgba(17, 127, 255, 0) 0%,
-						rgba(17, 127, 255, 0) 50%,
-						rgba(17, 127, 255, 0.7) 70%,
-						rgba(17, 127, 255, 0.95) 90%,
-						rgba(17, 127, 255, 1) 95%
-					),
-					url('$lib/images/kryla-with-effect-sm.png');
-			}
-			@supports (background-image: url('$lib/images/kryla-with-effect.webp')) {
-				background-image: linear-gradient(
+			background-image: linear-gradient(
 						180deg,
 						rgba(17, 127, 255, 0) 0%,
 						rgba(17, 127, 255, 0) 50%,
@@ -692,12 +680,11 @@
 						rgba(17, 127, 255, 1) 95%
 					),
 					url('$lib/images/kryla-with-effect.webp');
-			}
 			top: 0px;
 			left: 0px;
 			right: 0px;
 			bottom: 0px;
-			z-index: -2;
+			z-index: -10;
 			content: '';
 			transform: translateZ(-1px) scale(2);
 		}
@@ -1817,6 +1804,7 @@
 				height: 72px;
 				@media screen and (max-width: $mobile-breakpoint) {
 					height: 134px;
+					padding-bottom: 70px;
 				}
 				.icon-block {
 					width: 200px;
