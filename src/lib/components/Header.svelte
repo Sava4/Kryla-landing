@@ -67,7 +67,7 @@
 			<a class="support" href="#support">Підтримати ліцей</a>
 		</div>
 	</div>
-	<Counter />
+	<Counter loc="UA" />
 </div>
 
 <style lang="scss">

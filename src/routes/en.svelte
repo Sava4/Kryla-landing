@@ -1018,6 +1018,9 @@
 					font-weight: 600;
 					color: var(--yellow);
 				}
+				@media screen and (max-width: $mobile-breakpoint) {
+					padding: 0 5% 0;
+				}
 			}
 			.perelik {
 				margin: 0 auto 0 5.3%;
@@ -1661,6 +1664,7 @@
 						}
 					}
 					.rekvizity {
+						min-width: 223px;
 						height: 45px;
 						padding: 6px 49px 5px 38px;
 						border-radius: 10px;
@@ -1684,8 +1688,9 @@
 						}
 					}
 					.pidtrymaty-btn {
+						max-width: 224px;
 						position: relative;
-						padding: 12px 35px 11px;
+						padding: 12px 28px 11px;
 						font-size: 15px;
 						font-weight: 700;
 						letter-spacing: 0em;
@@ -1707,11 +1712,11 @@
 				.pidtrymaty-mobile-btn {
 					display: none;
 					@media screen and (max-width: $mobile-breakpoint) {
-						max-width: 225px;
+						max-width: 223px;
 						margin: 64px auto 0;
 						display: block;
 						position: relative;
-						padding: 12px 35px 11px;
+						padding: 12px 16px 11px;
 						font-size: 15px;
 						font-weight: 700;
 						letter-spacing: 0em;

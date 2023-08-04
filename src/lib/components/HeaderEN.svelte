@@ -67,7 +67,7 @@
 			<a class="support" href="#support">Support our lyceum</a>
 		</div>
 	</div>
-	<Counter />
+	<Counter loc="GB" />
 </div>
 
 <style lang="scss">

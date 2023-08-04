@@ -248,7 +248,7 @@
 				втратив бізнес, роботу, житло, покинув свій дім. На сьогодні саме існування школи без
 				зовнішньої підтримки є неможливим.
 			</p>
-			<a href="https://send.monobank.ua/7wmXTSuLwy">Підтримати ліцей</a>
+			<a href="#support">Підтримати ліцей</a>
 		</div>
 	</div>
 	<div id="history" use:inview={observerOpts} on:enter={() => (activeSection = 4)} class="history">
@@ -1006,6 +1006,9 @@
 					font-size: 30px;
 					font-weight: 600;
 					color: var(--yellow);
+				}
+				@media screen and (max-width: $mobile-breakpoint) {
+					padding: 0 5% 0;
 				}
 			}
 			.perelik {
