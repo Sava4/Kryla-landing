@@ -4,7 +4,7 @@
 
 <slot />
 
-<style>
+<style lang="scss">
 	@font-face {
 		font-family: 'Nunito';
 		font-style: normal;
@@ -56,8 +56,10 @@
 
 	:global(:root) {
 		--blue: #117fff;
+		--text-blue: #1162ff;
 		--yellow: #fff507;
 		--dark-blue: #0a5bdb;
+		--light-blue: #0d6ded;
 		--blue-green: #04e9a4;
 		--lime-green: #11ff37;
 		--white: #fff;
@@ -92,5 +94,8 @@
 		transform-style: preserve-3d;
 		scroll-behavior: smooth;
 		scroll-padding-top: 200px;
+		@media screen and (max-width: $mobile-breakpoint) {
+			scroll-padding-top: 55px;
+		}
 	}
 </style>
