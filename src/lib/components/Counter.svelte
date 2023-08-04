@@ -4,6 +4,7 @@
 	import { onMount } from 'svelte';
 	import Loader from '$lib/icons/loader.svg';
 
+	export let loc = 'UA'
 	let suma = 2000000;
 	let width = 10;
 	let loading = true;
@@ -12,8 +13,8 @@
 		easing: elasticInOut
 	});
 	const uahFmt = new Intl.NumberFormat('uk', { maximumFractionDigits: 0 });
-	$: value = uahFmt.format(Math.abs($number)) + ' грн';
-	$: total = uahFmt.format(suma) + ' грн';
+	$: value = uahFmt.format(Math.abs($number)) + `${ loc === 'UA' ? ' грн' : ' UAH'}`;
+	$: total = uahFmt.format(suma) + `${ loc === 'UA' ? ' грн' : ' UAH'}`;
 	onMount(() => {
 		fetch('https://kryla.school/api/counter')
 			.then((res) => res.json())
