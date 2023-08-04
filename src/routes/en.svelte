@@ -1,7 +1,7 @@
 <script>
 	import { inview } from 'svelte-inview';
 
-	import Header from '$lib/components/Header.svelte';
+	import Header from '$lib/components/HeaderEN.svelte';
 
 	import Diamond from '$lib/images/diamond-values.svg';
 	import Values from '$lib/images/values.svg';
@@ -108,8 +108,8 @@
 
 <Header {activeSection} />
 <div id="kryla" class="parallax" use:inview={observerOpts} on:enter={() => (activeSection = 1)}>
-	<h1>Ми навчаємо вільних дітей</h1>
-	<h2>Вільної, красивої та щасливої України</h2>
+	<h1>We teach free children</h1>
+	<h2>of Free, beautiful and happy Ukraine</h2>
 	<div class="ourvalues-icon">
 		<Diamond width="240" height="238" />
 		<Values class="cinnnosti" width="239" height="237" />
@@ -117,27 +117,27 @@
 	<div class="values">
 		<div class="val">
 			<img src={puzzle} alt="Puzzle head icon" />
-			<p>Чесність та людяність</p>
+			<p>Honesty and humanity</p>
 		</div>
 		<div class="val">
 			<img src={idea} alt="Light bulb icon" />
-			<p>Свідомість та схильність до саморефлексії</p>
+			<p>Consciousness and tendency to develop self-reflection</p>
 		</div>
 		<div class="val">
 			<img src={umbrella} alt="Umbrella icon" />
-			<p>Відповідальність за себе, сім’ю, спільноту, державу та світ</p>
+			<p>Responsibility for one's self, family, community, state, world</p>
 		</div>
 		<div class="val">
 			<img src={heart} alt="Heart icon" />
-			<p>Патріотизм як любов до свого народу</p>
+			<p>Patriotism as love for one's people</p>
 		</div>
 		<div class="val">
 			<img src={cloud} alt="Cloud icon" />
-			<p>Природна цікавість та готовність до самовдосконалення</p>
+			<p>Natural interest in learning, willingness to learn and self-improvement throughout life</p>
 		</div>
 		<div class="val">
 			<img src={dialogue} alt="Chat dialogue icon" />
-			<p>Вміння формувати ідеї шляхом вільного діалогу</p>
+			<p>The ability to generate ideas through free dialogue</p>
 		</div>
 	</div>
 </div>
@@ -157,38 +157,39 @@
 		</div>
 		<div class="ways-cont">
 			<div class="item">
-				<p class="name">Команда</p>
+				<p class="name">Team</p>
 				<p class="desc">
-					Ретельний добір фахівців-вчителів, які<br /> розділяють і сповідують вказані вище цінності
+					Thorough selection of teachers<br />
+					who share and profess the above values
 				</p>
 			</div>
 			<div class="item">
-				<p class="name">Менеджмент</p>
+				<p class="name">Management</p>
 				<p class="desc">
-					Діалог між усіма ланками управління та<br />
-					горизонтальні зв’язки між вчителями-учнями-батьками
+					Dialogue between all levels of administration<br />
+					and horizontal relationships between teachers, students, and parents
 				</p>
 			</div>
 			<div class="item">
-				<p class="name">Атмосфера</p>
+				<p class="name">Atmosphere</p>
 				<p class="desc">
-					Ставлення до дитини як до особистості, повноцінного<br />
-					і рівноправного учасника навчального процесу
+					Attitude to a child as a person,<br />
+					a full-fledged and equal participant of the learning process
 				</p>
 			</div>
 			<div class="item">
-				<p class="name">Творчість</p>
+				<p class="name">Creativity</p>
 				<p class="desc">
-					Креативність, підтримка усіх мистецьких і наукових проєктів<br />
-					талановитих дітей, надання можливості повної творчої реалізації<br />
-					під час навчання в школі
+					Artistism, support of all artistic and scientific projects<br />
+					of talented children, providing opportunities for full creative realization<br />
+					while studying at school
 				</p>
 			</div>
 			<div class="item">
-				<p class="name">Соціальний акцент</p>
+				<p class="name">Social focus</p>
 				<p class="desc">
-					Надання дітям та батькам можливості проявити свої здібності у сфері<br />
-					самоврядування, яке покладено у фундамент концепту школи.
+					Giving children and parents the opportunity to show their abilities in the field of
+					self-government, which is the foundation of the school concept
 				</p>
 			</div>
 		</div>
@@ -204,9 +205,9 @@
 		class="challenges-section"
 	>
 		<div class="challenges-container">
-			<Ticker {...tickerProps}>Ми навчаємо вільних дітей &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</Ticker>
+			<Ticker {...tickerProps}>We teach free children &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</Ticker>
 			<Ticker {...tickerProps} direction="right">
-				Ми навчаємо вільних дітей &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				We teach free children &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 			</Ticker>
 		</div>
 		<Circle class="circle circle-6" />
@@ -216,21 +217,25 @@
 			<ChallSpin class="challenges-spin" />
 		</div>
 		<div class="business">
-			<p>Ми не є бізнес-проектом. Нам складно існувати без підтримки меценатів та/або держави.</p>
-			<p>Орієнтація лише на прибуткову бізнес-модель обмежила б нас у досягненні наших цілей.</p>
-			<p class="accent">Тому</p>
+			<p>Focusing only on a profitable business model would limit us in achieving our goals.</p>
+			<p>
+				We are not a business project. It is difficult for us to exist without the support of
+				patrons and/or the state.
+			</p>
+			<p class="accent">Thus</p>
 		</div>
 		<div class="perelik">
 			<p class="first">
-				Ми не шукаємо дітей виключно з забезпечених сімей. Талант і бажання вчитися дитини для нас є
-				найважливішими. Підтримуємо талановитих дітей стипендіями на навчання.
+				We do not look for children exclusively from rich families. A child's talent and desire to
+				learn are paramount to us. We support talented children with scholarships.
 			</p>
 			<p class="second">
-				Наші вчителі – найкращі професіонали. Їхній справедливий гонорар – вище середнього на ринку.
+				Our teachers are the best professionals. Their fair fee is above the market average.
 			</p>
 			<p class="third">
-				Ми виступаємо за живий формат навчання та невеликі класи – це максимально трудоємкий і
-				вартісний продукт, і саме він веде нас до нашої мети.
+				We stand for a lively format of lessons and small classes - this is the most time-consuming
+				and expensive product, and that is the most important thing contributing to achievement of
+				our goals.
 			</p>
 		</div>
 	</div>
@@ -238,17 +243,18 @@
 	<div class="nash-licei">
 		<div>
 			<p>
-				Наш ліцей працює та розвивається в значній мірі за рахунок меценатства (40% бюджету). Форма
-				підтримки – оплата частини видатків школи та стипендії для талановитих учнів.
+				Our lyceum works and develops largely at the expense of patronage (40% of the budget). The
+				form of support is payment of part of the school expenses and scholarships for talented
+				students.
 			</p>
 			<p>
-				До російського вторгнення єдиним джерелом підтримки для школи були власні кошти засновників.
-				Втрати доходу у воєнний час ця підтримка не є можливою. Іншим викликом стало те, що
-				більшість сімей наших учнів також знаходяться у скрутному фінансовому стані. Багато хто
-				втратив бізнес, роботу, житло, покинув свій дім. На сьогодні саме існування школи без
-				зовнішньої підтримки є неможливим.
+				Prior to the full-scale Russian invasion, the only source of support for the school was the
+				Koscheev family. But due to the loss of income because the war, this support is not
+				possible. Another challenge is that most of our students' families are also in dire
+				financial straits. Many lost their businesses, jobs, and homes. Today, the very existence of
+				the school without external support is impossible.
 			</p>
-			<a href="https://send.monobank.ua/7wmXTSuLwy">Підтримати ліцей</a>
+			<a href="#support">Support our lyceum</a>
 		</div>
 	</div>
 	<div id="history" use:inview={observerOpts} on:enter={() => (activeSection = 4)} class="history">
@@ -259,53 +265,56 @@
 		<div class="qh-content">
 			<div class="quote-cont">
 				<p class="quote">
-					Ми прагнули створити таке середовище, де усі діти відчувають повагу до своєї особистості,
-					підтримку їхніх талантів та розвиток навиків співпраці. Школу, де вчителі розвивають
-					інтерес дітей до наук, мистецтв та до самого процесу навчання.
+					We sought to create an environment where all children respect their personalities, support
+					their talents and develop collaborative skills. A school where teachers develop children's
+					interest in science, the arts and the learning process itself.
 				</p>
-				<p class="author">Наталія Кощеєва, співзасновниця ліцею “Крила”</p>
+				<p class="author">Natalia Koshcheeva, co-founder of the Kryla Lyceum</p>
 			</div>
 			<div class="history-steps">
 				<div class="year">
 					<p class="number">2017</p>
 					<p class="text">
-						Заклад засновано Олександром та Наталією Кощеєвими головним чином для своїх дітей. “Ми
-						відчували, що школи, в яких вони навчались (а серед них були державні, експериментальні,
-						альтернативні), не давали їм того, що буде корисним для їхнього життя”, - ділиться
-						Наталія Кощеєва.
+						The institution was founded by Alexander and Natalia Koshcheev mainly for their
+						children. "We felt that the schools in which they studied (and among them were public,
+						experimental, alternative ones), did not give them what would be useful for their lives"
+						- said Natalia Koshcheeva.
 					</p>
 				</div>
 				<div class="year">
 					<p class="number">2018</p>
 					<p class="text">
-						Школа об’єднує навколо себе родини та викладачів, яким близькі її цінності. У школі
-						навчається близько 20 учнів 1-7 класів, працює 15 вчителів.
+						The school brings together families and teachers who share its values. The school has
+						about 20 students in grades 1-7, 15 teachers.
 					</p>
 				</div>
 				<div class="year">
 					<p class="number">2019</p>
 					<p class="text">
-						Команда закладу поступово поповнюється неймовірним складом вчителів-професіоналів,
-						об‘єднаних цінностями свободи самовираження, поваги до дитини, любові до рідної мови та
-						свого народу. Крилата родина поповнюється новими сім’ями та збільшується вдвічі.
+						The team of the institution is gradually replenished with an incredible number of
+						professional teachers, united by the values ​​of freedom of expression, respect for the
+						child, love for the native language and their people. The winged family is replenished
+						with new families and doubles.
 					</p>
 				</div>
 				<div class="year">
 					<p class="number">2020</p>
-					<p class="text">Заклад набуває статусу гімназії та випускає перших 9-ти класників.</p>
+					<p class="text">
+						The institution acquires the status of a gymnasium and graduates the first 9 students.
+					</p>
 				</div>
 				<div class="year">
 					<p class="number">2021</p>
 					<p class="text">
-						Київський ліцей “Крила” стає продовженням гімназії та отримує державну ліцензію для
-						підготовки учнів 10-11 класів.
+						Kyiv Lyceum "Wings" becomes an extension of the gymnasium and receives a state license
+						to teach students in grades 10-11.
 					</p>
 				</div>
 				<div class="year">
 					<p class="number">2022</p>
 					<p class="text">
-						Навіть у ці непрості часи у ліцеї здобуває освіту близько 70 учнів 1-11 класів та працює
-						25 вчителів.
+						Even in these difficult times, the lyceum educates about 70 students in grades 1-11 and
+						has 25 teachers.
 					</p>
 				</div>
 			</div>
@@ -318,62 +327,63 @@
 		</div>
 		<div class="howteachpar">
 			<p>
-				Прагнемо запалити у кожній дитині бажання творити: писати есе, вірші та романи, малювати
-				картини, грати вистави, співати і грати на фортепіано, дискутувати на гострі соціальні та
-				політичні теми тощо.
+				We strive to ignite the desire to create in every child: to write essays, poems and novels,
+				draw pictures, play plays, sing and play the piano, discuss complex social and political
+				topics and more.
 			</p>
-			<p>Впроваджуємо і підтримуємо дружні стосунки та довіру між учнями та вчителями.</p>
+			<p>We establish and maintain friendly relations and trust between students and teachers.</p>
 			<p>
-				Культивуємо певну “моду” на навчання, на здобуття універсальних знань, на постійне
-				розширення кола інтересів дитини.
+				We cultivate a certain "fashion" for learning, for the acquisition of universal knowledge,
+				for the constant expansion of the interests of the child.
 			</p>
 		</div>
 		<div class="card-container">
 			<div class="card">
 				<Icon1 />
-				<p>З 1-го класу у нас працюють вчителі-предметники, які дають глибокі знання</p>
+				<p>From the 1st grade we have subject teachers who give deep knowledge</p>
 			</div>
 			<div class="card">
 				<Icon2 />
-				<p>Постійно підкреслюємо важливість самостійності та розвиваємо її</p>
+				<p>We constantly emphasize the importance of independence and develop it</p>
 			</div>
 			<div class="card">
 				<Icon3 />
 				<p>
-					Програму Міністерства Освіти доповнюємо темами, які цікаві сучасним дітям, беремо до уваги
-					світові тенденції в освіті
+					The program of the Ministry of Education is supplemented with topics of interest to modern
+					children, we take into account global trends in education
 				</p>
 			</div>
 			<div class="card">
 				<Icon4 />
 				<p class="pl20">
-					Використовуємо сучасні матеріали, додатки та програми (Quizlet, Kahoot, Wordwall та ін.)
+					We use modern materials, applications and programs (Quizlet, Kahoot, Wordwall, etc.)
 				</p>
 			</div>
 			<div class="card">
 				<Icon5 />
 				<p>
-					Вводимо курси для розвитку потенціалу дітей, зокрема курс риторики, де учні вчаться
-					аналізувати та писати рецензії на твори світових авторів та навіть пишуть власні книги
+					We introduce courses for the development of children's potential, in particular a course
+					in rhetoric, where students learn to analyze and write reviews of works by world authors
+					and even write their own books
 				</p>
 			</div>
 			<div class="card">
 				<Icon6 />
 				<p class="pl20">
-					Поглиблено вивчаємо іноземні мови. Наші учні досягають вищих рівнів, ніж в звичайних
-					школах
+					We study foreign languages ​​in depth. Our students reach higher levels than in regular
+					schools
 				</p>
 			</div>
 			<div class="card">
 				<Icon7 />
 				<p class="pl17">
-					Спілкуємося з учнями поза уроками на цікаві їм теми, зокрема й обговорюємо можливі
-					напрямки в професії
+					Communicate with students outside of lessons on topics of interest to them, in particular,
+					and discuss possible areas of the profession
 				</p>
 			</div>
 			<div class="card">
 				<Icon8 />
-				<p>Наголошуємо про важливість опанування нових знань та скілів</p>
+				<p>We emphasize the importance of acquiring new knowledge and skills</p>
 			</div>
 		</div>
 	</div>
@@ -448,23 +458,24 @@
 		</div>
 	</div>
 	<div id="support" class="pidtrymaty">
-		<p class="mobile-heading">Підтримати "Крила"</p>
+		<p class="mobile-heading">Support "Kryla"</p>
 		<div class="qrcode">
 			<a href="https://send.monobank.ua/7wmXTSuLwy">
 				<img src={QR} alt="Qrcode for payment" />
 			</a>
 		</div>
 		<div class="payment-block">
-			<p class="heading">Підтримати "Крила"</p>
+			<p class="heading">Support "Kryla"</p>
 			<p class="instructions">
-				Відскануйте QR код або натисніть на кнопку і підтримайте ліцей "Крила" на будь-яку сумму
+				Scan the QR code or click on the button and support the Kryla Lyceum with any amount of
+				money
 			</p>
 			<div class="button-block" class:reqOpen>
 				<button class:reqOpen class="rekvizity" on:click={() => (reqOpen = !reqOpen)}>
 					<Rekvizity />
-					<span>Реквізити</span>
+					<span>Details</span>
 				</button>
-				<a href="https://send.monobank.ua/7wmXTSuLwy" class="pidtrymaty-btn">Підтримати ліцей</a>
+				<a href="https://send.monobank.ua/7wmXTSuLwy" class="pidtrymaty-btn">Support the lyceum</a>
 			</div>
 			{#if reqOpen}
 				<div class="tabs-container" transition:slide>
@@ -475,107 +486,107 @@
 							{/each}
 						</div>
 						<div class="tab">
-							<TabControlItem id="UA" payload="Перекази по Україні" active>
+							<TabControlItem id="UA" payload="Local ukrainian payments" active>
 								<div class="physichnyh">
-									<p><strong>🙋 Для фізичних осіб</strong></p>
-									<p>✅ Поповнення картки у гривні</p>
-									<p>№ картки: 5375414106537136</p>
-									<p>ОДЕРЖУВАЧ: КОЩЕЄВА Н.М.</p>
+									<p><strong>🙋 For persons</strong></p>
+									<p>✅ Topup Hryvnia card (UAH)</p>
+									<p>Card: 5375414106537136</p>
+									<p>RECEIVER: Koshcheeva N.</p>
 									<p>IBAN: UA573220010000026202301839029</p>
-									<p>БАНК ОДЕРЖУВАЧА: АТ «Універсал Банк»</p>
-									<p>ЄДРПОУ ОДЕРЖУВАЧА: 2786915261</p>
+									<p>Receiver Bank: Universal Bank JSC</p>
+									<p>RECEIVER EDRPOU: 2786915261</p>
 								</div>
 								<div class="yurydychnyh">
-									<p><strong>💼 Для юридичних осіб</strong></p>
-									<p>Назва підприємства: КИIВСЬКИЙ ЛIЦЕЙ КРИЛА ТОВ</p>
-									<p>Банк кореспондент: АТ КБ "ПРИВАТБАНК"</p>
+									<p><strong>💼 For companies</strong></p>
+									<p>Company: Private school 'Kryla' / Wings</p>
+									<p>Bank correspondent: JSC CB PRIVATBANK</p>
 									<p>SWIFT CODE: PBANUA2X</p>
-									<p>Адреса підприємства: UA 01001 м Київ вул Звiринецька, б.15/1</p>
+									<p>Company address: UA 01001 Kyiv, Zvirynetska St, 15/1</p>
 									<p>
-										Призначення платежу: «Благодійна допомога відповідно до листа № 22/06/06-1 від
-										06 червня 2022 р.»
+										Details of payment: «Charity donation according to the letter № 22/06/06-1 dated
+										06.06.22»
 									</p>
-									<p>&nbsp;&nbsp;&nbsp;&nbsp;<strong>✅ Переказ у гривні</strong></p>
+									<p>&nbsp;&nbsp;&nbsp;&nbsp;<strong>✅ UAH Transfer</strong></p>
 									<p>&nbsp;&nbsp;&nbsp;&nbsp;<strong>UA083052990000026002016205685</strong></p>
 								</div>
 							</TabControlItem>
-							<TabControlItem id="Int" payload="Перекази з-за кордону">
+							<TabControlItem id="Int" payload="International payments">
 								<div class="physichnyh">
-									<p><strong>🙋 Для фізичних осіб</strong></p>
-									<p>SWIFT-ПЕРЕКАЗИ</p>
+									<p><strong>🙋 For persons</strong></p>
+									<p>SWIFT-Transfer</p>
 									<p>BENEFICIARY: KOSHCHEIEVA NATALIIA</p>
 									<p>01001, Ukraine, c. Kyiv, st. Moskovska, build. 29A, fl. 23</p>
 									<p>Beneficiary bank: JSC UNIVERSAL BANK</p>
 									<p>SWIFT CODE: UNJSUAUKXXX</p>
 									<p>City: KYIV, UKRAINE</p>
-									<p>Details of payment (Призначення платежу): «Private transfer»</p>
-									<p>&nbsp;&nbsp;&nbsp;&nbsp;✅ Переказ у доларах США (USD)</p>
+									<p>Details of payment: «Private transfer»</p>
+									<p>&nbsp;&nbsp;&nbsp;&nbsp;✅ Dollar Transfer (USD)</p>
 									<p>&nbsp;&nbsp;&nbsp;&nbsp;IBAN: UA243220010000026204313675495</p>
 									<p>&nbsp;&nbsp;&nbsp;&nbsp;ACCOUNT: 26204313675495</p>
-									<p>&nbsp;&nbsp;&nbsp;&nbsp;✅ Переказ у злотих (PLN)</p>
+									<p>&nbsp;&nbsp;&nbsp;&nbsp;✅ Zloty Transfer (PLN)</p>
 									<p>&nbsp;&nbsp;&nbsp;&nbsp;IBAN: UA573220010000026202301839029</p>
 									<p>&nbsp;&nbsp;&nbsp;&nbsp;ACCOUNT: 26202301839029</p>
-									<p>&nbsp;&nbsp;&nbsp;&nbsp;✅ Переказ у фунтах-стерлінгах (GBP)</p>
+									<p>&nbsp;&nbsp;&nbsp;&nbsp;✅ Pound Transfer (GBP)</p>
 									<p>&nbsp;&nbsp;&nbsp;&nbsp;IBAN: UA573220010000026202301839029</p>
 									<p>&nbsp;&nbsp;&nbsp;&nbsp;ACCOUNT: 26202301839029</p>
 								</div>
 								<div class="yurydychnyh">
-									<p><strong>💼 Для юридичних осіб</strong></p>
-									<p>Назва підприємства: КИIВСЬКИЙ ЛIЦЕЙ КРИЛА ТОВ</p>
-									<p>Назва банку: JSC CB "PRIVATBANK",</p>
+									<p><strong>💼 For companies</strong></p>
+									<p>Company: Private school 'Kryla' / Wings</p>
+									<p>Bank name: JSC CB "PRIVATBANK",</p>
 									<p>1D HRUSHEVSKOHO STR., KYIV, 01001, UKRAINE</p>
 									<p>SWIFT CODE: PBANUA2X</p>
-									<p>Адреса підприємства: UA 01001 м Київ вул Звiринецька, б. 15/1</p>
+									<p>Company address: UA 01001 Kyiv, Zvirynetska St, 15/1</p>
 									<p>
-										Details of payment (Призначення платежу): «Charity donation according to the
-										letter № 22/06/06-1 dated 06.06.22»
+										Details of payment: «Charity donation according to the letter № 22/06/06-1 dated
+										06.06.22»
 									</p>
-									<p>&nbsp;&nbsp;&nbsp;&nbsp;<strong>✅ Переказ у євро (EUR)</strong></p>
+									<p>&nbsp;&nbsp;&nbsp;&nbsp;<strong>✅ Euro Transfer (EUR)</strong></p>
 									<p>&nbsp;&nbsp;&nbsp;&nbsp;<strong>IBAN: UA06305299000002600204622857</strong></p>
 									<p class="small">
 										&nbsp;&nbsp;&nbsp;&nbsp;Банк кореспондент: Commerzbank AG, Frankfurt am Main,
 										Germany
 									</p>
 									<p class="small">
-										&nbsp;&nbsp;&nbsp;&nbsp;Рахунок в банку кореспонденті: 400886700401
+										&nbsp;&nbsp;&nbsp;&nbsp;Account at bank correspondent: 400886700401
 									</p>
 									<p class="small">
-										&nbsp;&nbsp;&nbsp;&nbsp;SWIFT Code банку-кореспондента: COBADEFF
+										&nbsp;&nbsp;&nbsp;&nbsp;SWIFT Code of bank correspondent: COBADEFF
 									</p>
-									<p class="small">&nbsp;&nbsp;&nbsp;&nbsp;або</p>
+									<p class="small">&nbsp;&nbsp;&nbsp;&nbsp;or</p>
 									<p class="small">
-										&nbsp;&nbsp;&nbsp;&nbsp;Банк кореспондент: J.P.MORGAN AG, FRANKFURT AM MAIN,
+										&nbsp;&nbsp;&nbsp;&nbsp;Bank correspondent: J.P.MORGAN AG, FRANKFURT AM MAIN,
 										GERMANY
 									</p>
 									<p class="small">
-										&nbsp;&nbsp;&nbsp;&nbsp;Рахунок в банку кореспонденті: 6231605145
+										&nbsp;&nbsp;&nbsp;&nbsp;Account at bank correspondent: 6231605145
 									</p>
 									<p class="small">
-										&nbsp;&nbsp;&nbsp;&nbsp;SWIFT Code банку-кореспондента: CHASDEFX
+										&nbsp;&nbsp;&nbsp;&nbsp;SWIFT Code of bank correspondent: CHASDEFX
 									</p>
-									<p>&nbsp;&nbsp;&nbsp;&nbsp;<strong>✅ Переказ у USD</strong></p>
+									<p>&nbsp;&nbsp;&nbsp;&nbsp;<strong>✅ Dollar transfer (USD)</strong></p>
 									<p>
 										&nbsp;&nbsp;&nbsp;&nbsp;<strong>IBAN: UA933052990000026002026234828</strong>
 									</p>
 									<p class="small">
-										&nbsp;&nbsp;&nbsp;&nbsp;Банк кореспондент: JP Morgan Chase Bank, New York ,USA
+										&nbsp;&nbsp;&nbsp;&nbsp;Bank correspondent: JP Morgan Chase Bank, New York ,USA
 									</p>
 									<p class="small">
-										&nbsp;&nbsp;&nbsp;&nbsp;Рахунок в банку кореспонденті: 001-1-000080
+										&nbsp;&nbsp;&nbsp;&nbsp;Account at bank correspondent: 001-1-000080
 									</p>
 									<p class="small">
-										&nbsp;&nbsp;&nbsp;&nbsp;SWIFT Code банку-кореспондента: CHASUS33
+										&nbsp;&nbsp;&nbsp;&nbsp;SWIFT Code of bank correspondent: CHASUS33
 									</p>
-									<p class="small">&nbsp;&nbsp;&nbsp;&nbsp;або</p>
+									<p class="small">&nbsp;&nbsp;&nbsp;&nbsp;or</p>
 									<p class="small">
-										&nbsp;&nbsp;&nbsp;&nbsp;Банк кореспондент: The Bank of New York Mellon, New
+										&nbsp;&nbsp;&nbsp;&nbsp;Bank correspondent: The Bank of New York Mellon, New
 										York, USA
 									</p>
 									<p class="small">
-										&nbsp;&nbsp;&nbsp;&nbsp;Рахунок в банку кореспонденті: 890-0085-754
+										&nbsp;&nbsp;&nbsp;&nbsp;Account at bank correspondent: 890-0085-754
 									</p>
 									<p class="small">
-										&nbsp;&nbsp;&nbsp;&nbsp;SWIFT Code банку-кореспондент: IRVT US 3N
+										&nbsp;&nbsp;&nbsp;&nbsp;SWIFT Code of bank correspondent: IRVT US 3N
 									</p>
 								</div>
 							</TabControlItem>
@@ -584,7 +595,7 @@
 				</div>
 			{/if}
 			<a href="https://send.monobank.ua/7wmXTSuLwy" class="pidtrymaty-mobile-btn"
-				>Підтримати ліцей</a
+				>Support the lyceum</a
 			>
 		</div>
 	</div>
@@ -613,9 +624,9 @@
 			</div>
 			<div class="address">
 				<a href="https://goo.gl/maps/yuymLTb1n7j1k4Gq8">
-					вул. Звіринецька, 15/1,<br />
-					Печерський р-н, Київ,<br />
-					Україна 01014
+					Zvirynetska Street, 15/1,<br />
+					Pecherskyi district, Kyiv,<br />
+					Ukraine 01014
 				</a>
 			</div>
 		</div>

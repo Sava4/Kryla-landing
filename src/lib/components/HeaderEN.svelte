@@ -7,7 +7,7 @@
 
 	import Counter from '$lib/components/Counter.svelte';
 
-	let selected = 'UA';
+	let selected = 'GB';
 	let open = false;
 	export let activeSection = 1;
 </script>
@@ -15,7 +15,7 @@
 <div class="fixed">
 	<div class="bg">
 		<div class="container">
-			<a href="https://kryla.school/charity"><Logo class="logo" width="186" height="64" /></a>
+			<a href="https://kryla.school/charity/en"><Logo class="logo" width="186" height="64" /></a>
 			<div
 				class="lang-contain"
 				class:open
@@ -24,20 +24,20 @@
 				on:outclick={() => (open = false)}
 			>
 				<div class="langselector">
-					<img
-						src={UA}
-						alt={'Ukraine language selector'}
-						on:click={() => (selected = 'UA')}
-						class:active={selected === 'UA'}
-					/>
-					<a href="https://kryla.school/charity/en">
+					<a href="https://kryla.school/charity">
 						<img
-							src={GB}
-							alt={'English language selector'}
-							on:click={() => (selected = 'GB')}
-							class:active={selected === 'GB'}
+							src={UA}
+							alt={'Ukraine language selector'}
+							on:click={() => (selected = 'UA')}
+							class:active={selected === 'UA'}
 						/>
 					</a>
+					<img
+						src={GB}
+						alt={'English language selector'}
+						on:click={() => (selected = 'GB')}
+						class:active={selected === 'GB'}
+					/>
 				</div>
 			</div>
 			<div class="paginator">
@@ -61,10 +61,10 @@
 				</a>
 			</div>
 			<span class="motto"
-				>В нелегкий час наш ліцей виконує важливу місію з розвитку та виховання майбутніх патріотів
-				та лідерів європейської країни</span
+				>At this difficult time, our lyceum is fulfilling an important mission to develop and
+				educate future patriots and leaders of a European country</span
 			>
-			<a class="support" href="#support">Підтримати ліцей</a>
+			<a class="support" href="#support">Support our lyceum</a>
 		</div>
 	</div>
 	<Counter />
@@ -188,7 +188,7 @@
 
 			@media screen and (max-width: $mobile-breakpoint) {
 				height: 24px;
-				width: 115px;
+				width: 126px;
 				border-radius: 5px;
 				padding: 5px 10px;
 				margin-left: auto;
@@ -210,7 +210,7 @@
 
 		.motto {
 			margin-left: auto;
-			width: 323px;
+			width: 330px;
 			height: 45px;
 			font-weight: 500;
 			font-size: 15px;
